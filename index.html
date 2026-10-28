@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FreshTouch — выездная химчистка мебели и ковров в Краснодаре</title>
+<title>Чисто Конкретно — выездная химчистка мебели и ковров в Краснодаре</title>
 <meta name="description" content="Выездная химчистка мебели и ковров в Краснодаре и Яблоновском. Высыхание за 3–4 часа. Оплата после результата.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@ h2 .serif{color:#8F9AFF}
 /* header */
 header{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);color:#0F1117;transition:background .35s,color .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}header.sc{background:rgba(11,12,16,.8);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom-color:var(--line);color:#fff}
 .hbar{margin:0 auto;max-width:1280px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;transition:padding .35s}header.sc .hbar{padding:12px 24px}
-.lg{display:block;width:34px;height:34px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cmask id='m'%3E%3Crect width='40' height='40' fill='white'/%3E%3Cpath d='M7 28C16 28 26 22 32 11' stroke='black' stroke-width='3.600' fill='none' stroke-linecap='round'/%3E%3C/mask%3E%3C/defs%3E%3Cpath d='M20 2C27 11 33 18 33 25a13 13 0 01-26 0C7 18 13 11 20 2z' fill='white' mask='url(%23m)'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cmask id='m'%3E%3Crect width='40' height='40' fill='white'/%3E%3Cpath d='M7 28C16 28 26 22 32 11' stroke='black' stroke-width='3.600' fill='none' stroke-linecap='round'/%3E%3C/mask%3E%3C/defs%3E%3Cpath d='M20 2C27 11 33 18 33 25a13 13 0 01-26 0C7 18 13 11 20 2z' fill='white' mask='url(%23m)'/%3E%3C/svg%3E") center/contain no-repeat}.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.12em;font-size:13px}
+.logo{--lc:#0F1117;--lb:#D6D9E2}header.sc .logo,footer .logo{--lc:#fff;--lb:#0B0C10}.lg2{display:inline-flex;flex-direction:column;align-items:flex-start;font:800 15px/1 Inter,Arial,sans-serif;letter-spacing:-.01em}.lg2 b{display:block;background:var(--lc);color:var(--lb);padding:3px 6px 2px;font-weight:800;transition:.35s}.lg2 i{display:block;height:2px;background:var(--lc);margin:3px 0 2px;transition:.35s}.lg2 em{font-style:normal;color:var(--lc);transition:.35s}.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.12em;font-size:13px}
 nav{display:flex;gap:26px;font-size:14px}nav a{opacity:.7;transition:opacity .2s}nav a:hover{opacity:1}
 .hr{display:flex;align-items:center;gap:16px;font-size:14px}
 @media(max-width:900px){nav{display:none}.hr .call{display:none}}
@@ -128,7 +128,7 @@ footer{padding:80px 0 0;overflow:hidden}
 @media(max-width:800px){.fg{grid-template-columns:1fr 1fr}}
 .fg h4{color:#fff;font-size:13px;letter-spacing:.1em;margin:0 0 10px;font-weight:600}.fg a:hover{color:#fff}
 .soc{display:flex;gap:10px;margin-top:14px}.soc a{padding:9px 16px;border:1px solid var(--line);border-radius:999px;color:#fff}.soc a:hover{background:var(--ac)}
-.giant{font-size:10.5vw;font-weight:700;letter-spacing:-.04em;line-height:.78;text-align:center;white-space:nowrap;width:100%;margin-top:60px;height:.5em;overflow:hidden;color:rgba(255,255,255,.07);user-select:none}
+.giant{font-size:9.2vw;font-weight:700;letter-spacing:-.04em;line-height:.78;text-align:center;white-space:nowrap;width:100%;margin-top:60px;height:.5em;overflow:hidden;color:rgba(255,255,255,.07);user-select:none}
 .toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,120px);background:#fff;color:#111;padding:14px 22px;border-radius:999px;font-size:14px;z-index:99;transition:.4s;max-width:90%}.toast.on{transform:translate(-50%,0)}
 </style>
 </head>
@@ -139,9 +139,9 @@ footer{padding:80px 0 0;overflow:hidden}
 </defs></svg>
 
 <header id="hdr"><div class="hbar">
-<a href="#hero" class="logo"><span class="lg" role="img" aria-label="FreshTouch"></span>FRESHTOUCH</a>
+<a href="#hero" class="logo"><span class="lg2" role="img" aria-label="Чисто Конкретно"><span class="t"><b>ЧИСТО</b><i></i></span><em>КОНКРЕТНО</em></span></a>
 <nav><a href="#steps">Этапы</a><a href="#ba-s">До / После</a><a href="#calc">Калькулятор</a><a href="#rev">Отзывы</a><a href="#faq">FAQ</a></nav>
-<div class="hr"><a class="call" href="tel:+79182227767">Позвонить</a><a class="btn btn-ac" style="padding:10px 18px;font-size:14px" href="https://t.me/AllSum" target="_blank" rel="noopener">Оценить по фото</a></div>
+<div class="hr"><a class="call" href="tel:+79186538494">Позвонить</a><a class="btn btn-ac" style="padding:10px 18px;font-size:14px" href="https://t.me/chisto_konkretno" target="_blank" rel="noopener">Оценить по фото</a></div>
 </div></header>
 
 <section id="hero">
@@ -149,7 +149,7 @@ footer{padding:80px 0 0;overflow:hidden}
 <div class="hc">
 <h1>Химчистка с выездом — идеальная <span class="serif">свежесть</span> вашей мебели</h1>
 <p class="sub">Глубокая экстракция пятен, запахов и пылевых клещей на дому в Краснодаре. Высыхание за 3–4 часа.</p>
-<div class="hbtns"><a href="#calc" class="btn btn-dark">Рассчитать стоимость</a><a href="https://t.me/AllSum" target="_blank" rel="noopener" class="btn btn-glass">Оценить по фото в Telegram</a></div>
+<div class="hbtns"><a href="#calc" class="btn btn-dark">Рассчитать стоимость</a><a href="https://t.me/chisto_konkretno" target="_blank" rel="noopener" class="btn btn-glass">Оценить по фото в Telegram</a></div>
 </div>
 <div class="hbot"><span style="max-width:320px">Профессиональное оборудование Karcher &amp; Santoemma. Оплата после результата.</span><a href="#ba-s" class="arr" aria-label="Вниз">↓</a></div>
 </section>
@@ -193,17 +193,16 @@ footer{padding:80px 0 0;overflow:hidden}
 <div class="lbl">Ориентировочно</div>
 <div id="sum">0 ₽</div>
 <div id="lst">Выберите, что нужно почистить</div>
-<a id="wa" class="btn btn-ac" href="https://wa.me/79182227767" target="_blank" rel="noopener">Заказать в WhatsApp</a>
-<a id="tg" class="btn btn-line" href="https://t.me/AllSum" target="_blank" rel="noopener">Заказать в Telegram</a>
+<a id="tg" class="btn btn-ac" href="https://t.me/chisto_konkretno" target="_blank" rel="noopener">Заказать в Telegram</a>
 <div style="font-size:12px;color:#A9B0CC">Точную цену назовём по фото. Оплата после результата.</div>
 </div></div></div></section>
 
 <section id="eff"><div class="wrap">
 <h2 class="rv">Эффективность, которая <span class="serif">выделяется</span> на деле</h2>
 <div class="g3b">
-<div class="card bc rv"><h3>Глубина очистки ворса</h3><div class="bi m"><div class="r"><span>FreshTouch (Экстрактор)</span><b>99.2%</b></div><div class="bt"><div class="bf" data-w="99.2"></div></div></div><div class="bi"><div class="r"><span>Бытовой пылесос</span><b>25%</b></div><div class="bt"><div class="bf" data-w="25"></div></div></div><div class="bi"><div class="r"><span>Ручная замывка пеной</span><b>15%</b></div><div class="bt"><div class="bf" data-w="15"></div></div></div></div>
-<div class="card bc rv"><h3>Удаление пятен и запахов</h3><div class="bi m"><div class="r"><span>FreshTouch (Chemspec)</span><b>98.5%</b></div><div class="bt"><div class="bf" data-w="98.5"></div></div></div><div class="bi"><div class="r"><span>Сетевой клининг</span><b>68%</b></div><div class="bt"><div class="bf" data-w="68"></div></div></div><div class="bi"><div class="r"><span>Народные средства</span><b>20%</b></div><div class="bt"><div class="bf" data-w="20"></div></div></div></div>
-<div class="card bc rv"><h3>Безопасность для ткани и детей</h3><div class="bi m"><div class="r"><span>FreshTouch (Эко-состав)</span><b>100%</b></div><div class="bt"><div class="bf" data-w="100"></div></div></div><div class="bi"><div class="r"><span>Агрессивная химия с хлором</span><b>35%</b></div><div class="bt"><div class="bf" data-w="35"></div></div></div></div>
+<div class="card bc rv"><h3>Глубина очистки ворса</h3><div class="bi m"><div class="r"><span>Чисто Конкретно (Экстрактор)</span><b>99.2%</b></div><div class="bt"><div class="bf" data-w="99.2"></div></div></div><div class="bi"><div class="r"><span>Бытовой пылесос</span><b>25%</b></div><div class="bt"><div class="bf" data-w="25"></div></div></div><div class="bi"><div class="r"><span>Ручная замывка пеной</span><b>15%</b></div><div class="bt"><div class="bf" data-w="15"></div></div></div></div>
+<div class="card bc rv"><h3>Удаление пятен и запахов</h3><div class="bi m"><div class="r"><span>Чисто Конкретно (Chemspec)</span><b>98.5%</b></div><div class="bt"><div class="bf" data-w="98.5"></div></div></div><div class="bi"><div class="r"><span>Сетевой клининг</span><b>68%</b></div><div class="bt"><div class="bf" data-w="68"></div></div></div><div class="bi"><div class="r"><span>Народные средства</span><b>20%</b></div><div class="bt"><div class="bf" data-w="20"></div></div></div></div>
+<div class="card bc rv"><h3>Безопасность для ткани и детей</h3><div class="bi m"><div class="r"><span>Чисто Конкретно (Эко-состав)</span><b>100%</b></div><div class="bt"><div class="bf" data-w="100"></div></div></div><div class="bi"><div class="r"><span>Агрессивная химия с хлором</span><b>35%</b></div><div class="bt"><div class="bf" data-w="35"></div></div></div></div>
 </div></div></section>
 
 <section id="rev"><div class="wrap">
@@ -225,27 +224,26 @@ footer{padding:80px 0 0;overflow:hidden}
 <h2>Узнайте точную стоимость по фото за <span class="serif">5 минут</span></h2>
 <div>
 <input id="nm" placeholder="Ваше имя и телефон" autocomplete="tel">
-<a id="ctaw" class="btn btn-ac" style="width:100%;margin-bottom:10px" href="https://wa.me/79182227767" target="_blank" rel="noopener">Отправить фото в WhatsApp</a>
-<a class="btn btn-line" style="width:100%;margin-bottom:14px" href="https://t.me/AllSum" target="_blank" rel="noopener">Отправить фото в Telegram</a>
-<div style="text-align:center"><a href="tel:+79182227767" style="font-size:22px;font-weight:500">+7 (918) 222-77-67</a></div>
+<a id="ctat" class="btn btn-ac" style="width:100%;margin-bottom:14px" href="https://t.me/chisto_konkretno" target="_blank" rel="noopener">Отправить фото в Telegram</a>
+<div style="text-align:center"><a href="tel:+79186538494" style="font-size:22px;font-weight:500">+7 (918) 653-84-94</a></div>
 </div></div></div></section>
 
 <footer><div class="wrap">
 <div class="fg">
-<div><a href="#hero" class="logo" style="color:#fff"><span class="lg" role="img" aria-label="FreshTouch"></span>FRESHTOUCH</a><p style="margin:14px 0 0;line-height:1.6">Выездная химчистка мебели и ковров. Краснодар и Яблоновский.</p><div class="soc"><a href="https://t.me/AllSum" target="_blank" rel="noopener">Telegram</a><a href="https://wa.me/79182227767" target="_blank" rel="noopener">WhatsApp</a></div></div>
+<div><a href="#hero" class="logo" style="color:#fff"><span class="lg2" role="img" aria-label="Чисто Конкретно"><span class="t"><b>ЧИСТО</b><i></i></span><em>КОНКРЕТНО</em></span></a><p style="margin:14px 0 0;line-height:1.6">Выездная химчистка мебели и ковров. Краснодар и Яблоновский.</p><div class="soc"><a href="https://t.me/chisto_konkretno" target="_blank" rel="noopener">Telegram</a></div></div>
 <div><h4>НАВИГАЦИЯ</h4><a href="#steps">Этапы</a><br><a href="#ba-s">До / После</a><br><a href="#calc">Калькулятор</a><br><a href="#faq">FAQ</a></div>
 <div><h4>УСЛУГИ</h4>Диваны<br>Матрасы<br>Ковры<br>Кресла и стулья</div>
-<div><h4>КОНТАКТЫ</h4><a href="tel:+79182227767">+7 (918) 222-77-67</a><br>г. Краснодар,<br>ул. Красных Партизан, 1/3 к4<br>Краснодар · Яблоновский</div>
+<div><h4>КОНТАКТЫ</h4><a href="tel:+79186538494">+7 (918) 653-84-94</a><br>г. Краснодар,<br>ул. Красных Партизан, 1/3 к4<br>Краснодар · Яблоновский</div>
 </div>
 </div>
-<div class="giant" aria-hidden="true">FRESHTOUCH</div>
+<div class="giant" aria-hidden="true">ЧИСТО КОНКРЕТНО</div>
 </footer>
 <div class="toast" id="toast"></div>
 
 <script>
 (function(){
 var $=function(s){return document.querySelector(s)};
-var TG='https://t.me/AllSum',WA='https://wa.me/79182227767';
+var TG='https://t.me/chisto_konkretno';
 /* badges */
 var bd=['✦ Химия Chemspec (США)','✦ Экстракторы Santoemma','✦ Гипоаллергенно 0+','✦ Рейтинг 4.7 в Картах','✦ Выезд за 60 минут','✦ Гарантия чистоты'];
 var h='';for(var k=0;k<2;k++)bd.forEach(function(b){h+='<span>'+b+'</span>'});$('#mt').innerHTML=h;
@@ -288,13 +286,13 @@ items.forEach(function(it,i){if(sel[i]){if(i==5){t+=it[1]*m;l.push('Ковер '
 var hasItems=l.length>0;
 extras.forEach(function(it,i){if(ex[i]&&hasItems){t+=it[1];l.push(it[0])}});
 $('#sum').textContent=fmt(t);$('#lst').textContent=hasItems?l.join(' · '):'Выберите, что нужно почистить';
-var msg=hasItems?'Здравствуйте! Хочу заказать химчистку в FreshTouch: '+l.join(', ')+'. Ориентировочно: '+fmt(t)+'.':'Здравствуйте! Хочу рассчитать химчистку мебели.';
-$('#wa').href=WA+'?text='+encodeURIComponent(msg);$('#wa').dataset.m=msg;$('#tg').dataset.m=msg;$('#m2w').style.display=sel[5]?'flex':'none'}
+var msg=hasItems?'Здравствуйте! Хочу заказать химчистку в «Чисто Конкретно»: '+l.join(', ')+'. Ориентировочно: '+fmt(t)+'.':'Здравствуйте! Хочу рассчитать химчистку мебели.';
+$('#tg').href=TG+'?text='+encodeURIComponent(msg);$('#tg').dataset.m=msg;$('#m2w').style.display=sel[5]?'flex':'none'}
 $('#chips').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;var i=b.dataset.i;sel[i]=!sel[i];b.classList.toggle('on',!!sel[i]);calc()});
 $('#ext').addEventListener('change',function(e){ex[e.target.dataset.e]=e.target.checked;calc()});
 $('#m2').addEventListener('input',calc);
 function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('on');setTimeout(function(){el.classList.remove('on')},3500)}
-$('#tg').addEventListener('click',function(){var m=this.dataset.m||'';if(navigator.clipboard){navigator.clipboard.writeText(m).then(function(){toast('Текст заказа скопирован — вставьте его в чат Telegram')},function(){})}});
+$('#tg').addEventListener('click',function(){var m=this.dataset.m||'';if(navigator.clipboard){navigator.clipboard.writeText(m).then(function(){toast('Текст заказа скопирован. Если он не появился в чате сам, просто вставьте его')},function(){})}});
 calc();
 /* reviews */
 var R=[
@@ -311,7 +309,7 @@ var F=[['Сколько сохнет диван после химчистки?',
 $('#acc').innerHTML=F.map(function(f,i){return '<div class="fi'+(i==0?' on':'')+'"><button class="fb">'+f[0]+'<i>+</i></button><div class="fa"><div><p>'+f[1]+'</p></div></div></div>'}).join('');
 $('#acc').addEventListener('click',function(e){var b=e.target.closest('.fb');if(!b)return;var it=b.parentNode,o=it.classList.contains('on');document.querySelectorAll('.fi').forEach(function(x){x.classList.remove('on')});if(!o)it.classList.add('on')});
 /* cta */
-$('#nm').addEventListener('input',function(){$('#ctaw').href=WA+'?text='+encodeURIComponent('Здравствуйте! Хочу узнать стоимость химчистки по фото. '+this.value)});
+$('#nm').addEventListener('input',function(){$('#ctat').href=TG+'?text='+encodeURIComponent('Здравствуйте! Хочу узнать стоимость химчистки по фото. '+this.value)});
 })();
 </script>
 </body>
