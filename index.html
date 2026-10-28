@@ -38,7 +38,7 @@ nav{display:flex;gap:26px;font-size:14px}nav a{opacity:.7;transition:opacity .2s
 #hero{min-height:100vh;min-height:100svh;background:#D6D9E2;color:#0D0F14;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:130px 24px 36vh;overflow:hidden}
 #dome{position:absolute;left:50%;top:52%;transform:translateX(-50%);width:160vw;height:110vh;border-radius:50% 50% 0 0;background:radial-gradient(50% 65% at 50% 35%,#4F63B0 0%,#253366 38%,#0B0C10 78%);filter:blur(45px);pointer-events:none;z-index:1}
 #fade{position:absolute;left:0;right:0;bottom:0;height:140px;background:linear-gradient(to bottom,transparent,#0B0C10);z-index:1}
-#trail{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;filter:blur(18px)}
+#tr{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0}#tr canvas{position:absolute;inset:0;width:100%;height:100%}
 .hc{position:relative;z-index:2;max-width:980px}
 #hero h1{color:#0D0F14;font-size:clamp(40px,7.2vw,92px);line-height:1.02;letter-spacing:-.035em;font-weight:500;margin:0 0 26px}
 #hero p.sub{font-size:clamp(16px,1.7vw,20px);color:#3B3F4D;max-width:660px;margin:0 auto 36px;line-height:1.55}
@@ -130,6 +130,15 @@ footer{padding:80px 0 0;overflow:hidden}
 .soc{display:flex;gap:10px;margin-top:14px}.soc a{padding:9px 16px;border:1px solid var(--line);border-radius:999px;color:#fff}.soc a:hover{background:var(--ac)}
 .giant{font-size:9.2vw;font-weight:700;letter-spacing:-.04em;line-height:.78;text-align:center;white-space:nowrap;width:100%;margin-top:60px;height:.5em;overflow:hidden;color:rgba(255,255,255,.07);user-select:none}
 .toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,120px);background:#fff;color:#111;padding:14px 22px;border-radius:999px;font-size:14px;z-index:99;transition:.4s;max-width:90%}.toast.on{transform:translate(-50%,0)}
+#mos{padding:40px 0 100px;overflow:hidden}.mosaic{max-width:1100px;margin:64px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}.mcol{display:flex;flex-direction:column;gap:16px;will-change:transform,filter}.mcol:nth-child(2){margin-top:70px}
+.tile{border-radius:24px;background-size:cover;border:1px solid var(--line);opacity:0;transform:translateY(90px) scale(.96);filter:blur(10px);transition:opacity .9s ease,transform 1s cubic-bezier(.2,.8,.2,1),filter .9s ease;transition-delay:var(--d,0s)}
+.tile.in{opacity:1;transform:none;filter:none}.arch{border-radius:200px 200px 24px 24px}
+.mq-t{font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.25;text-align:center;max-width:680px;margin:0 auto;color:#C9CCDA;letter-spacing:-.02em}.mq-t .serif{color:#8F9AFF}
+@media(max-width:700px){.mosaic{grid-template-columns:1fr 1fr}.mcol:nth-child(3){display:none}}
+.st.rv{transition:filter .9s ease,opacity .9s ease,transform .9s ease,background .45s,color .45s}
+.g4 .st:nth-child(2){transition-delay:.1s,.1s,.1s,0s,0s}.g4 .st:nth-child(3){transition-delay:.2s,.2s,.2s,0s,0s}.g4 .st:nth-child(4){transition-delay:.3s,.3s,.3s,0s,0s}
+.st.rv svg{filter:blur(10px);transform:scale(.9);transition:filter 1s ease .4s,transform 1s cubic-bezier(.2,.8,.2,1) .4s}.st.rv.in svg{filter:none;transform:none}
+@media(prefers-reduced-motion:reduce){.rv,.tile,.st.rv svg{transition:none!important;filter:none!important;opacity:1!important;transform:none!important}}
 </style>
 </head>
 <body>
@@ -145,7 +154,7 @@ footer{padding:80px 0 0;overflow:hidden}
 </div></header>
 
 <section id="hero">
-<div id="dome"></div><div id="fade"></div><canvas id="trail"></canvas>
+<div id="dome"></div><div id="fade"></div><div id="tr"></div>
 <div class="hc">
 <h1>Химчистка с выездом — идеальная <span class="serif">свежесть</span> вашей мебели</h1>
 <p class="sub">Глубокая экстракция пятен, запахов и пылевых клещей на дому в Краснодаре. Высыхание за 3–4 часа.</p>
@@ -153,6 +162,8 @@ footer{padding:80px 0 0;overflow:hidden}
 </div>
 <div class="hbot"><span style="max-width:320px">Профессиональное оборудование Karcher &amp; Santoemma. Оплата после результата.</span><a href="#ba-s" class="arr" aria-label="Вниз">↓</a></div>
 </section>
+
+<section id="mos"><div class="wrap"><p class="mq-t rv">Вернём вашей мебели <span class="serif">свежий</span> вид — быстро и без лишней химии</p></div><div class="mosaic" id="mosaic"><div class="mcol"><div class="tile" style="height:260px;background-image:url(https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=80),linear-gradient(160deg,#4F60A8,#13151C);background-position:center"></div><div class="tile arch" style="height:340px;background-image:url(https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=700&q=80),linear-gradient(160deg,#2E3A6E,#0B0C10);background-position:center"></div><div class="tile" style="height:220px;background-image:url(https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=700&q=80),linear-gradient(160deg,#6A78B8,#253366);background-position:center"></div></div><div class="mcol"><div class="tile arch" style="height:340px;background-image:url(https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=700&q=80),linear-gradient(160deg,#2E3A6E,#0B0C10);background-position:center"></div><div class="tile" style="height:240px;background-image:url(https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80),linear-gradient(160deg,#6A78B8,#253366);background-position:center"></div><div class="tile" style="height:300px;background-image:url(https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=700&q=80),linear-gradient(160deg,#4F60A8,#13151C);background-position:center"></div></div><div class="mcol"><div class="tile" style="height:220px;background-image:url(https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=700&q=80),linear-gradient(160deg,#6A78B8,#253366);background-position:center"></div><div class="tile" style="height:320px;background-image:url(https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=80),linear-gradient(160deg,#4F60A8,#13151C);background-position:right"></div><div class="tile" style="height:260px;background-image:url(https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=700&q=80),linear-gradient(160deg,#2E3A6E,#0B0C10);background-position:left"></div></div></div></section>
 
 <section id="ba-s"><div class="wrap">
 <h2 class="rv">Результат, который <span class="serif">видно</span> с первого взгляда</h2>
@@ -248,18 +259,21 @@ var TG='https://t.me/chisto_konkretno';
 var bd=['✦ Химия Chemspec (США)','✦ Экстракторы Santoemma','✦ Гипоаллергенно 0+','✦ Рейтинг 4.7 в Картах','✦ Выезд за 60 минут','✦ Гарантия чистоты'];
 var h='';for(var k=0;k<2;k++)bd.forEach(function(b){h+='<span>'+b+'</span>'});$('#mt').innerHTML=h;
 /* trail */
-var hero=$('#hero'),cv=$('#trail'),g=cv.getContext('2d'),pts=[],mx=0,my=0,on=false,W=0,H=0,N=40;
-function rs(){W=cv.width=hero.offsetWidth;H=cv.height=hero.offsetHeight}
+var hero=$('#hero'),tr=$('#tr'),K=.5,N=70,W=0,H=0,pts=[],mx=0,my=0,on=false,vis=0,want=0,
+L=[{c:'#9AA6EE',o:.4,b:38,R:165,e:.7,m:.22},{c:'#2F3FB0',o:.9,b:24,R:105,e:1.3,m:.14},{c:'#02030A',o:1,b:12,R:62,e:2,m:.1}];
+L.forEach(function(l){var c=document.createElement('canvas');c.style.opacity=l.o;c.style.filter='blur('+l.b+'px)';tr.appendChild(c);l.cv=c;l.g=c.getContext('2d')});
+function rs(){W=hero.offsetWidth*K;H=hero.offsetHeight*K;L.forEach(function(l){l.cv.width=W;l.cv.height=H})}
 rs();addEventListener('resize',rs);
-hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;if(!on){on=true;pts=[];for(var i=0;i<N;i++)pts.push([mx,my])}});
+hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;want=1;if(!on){on=true;pts=[];for(var i=0;i<N;i++)pts.push([mx,my])}});
+hero.addEventListener('pointerleave',function(){want=0});
 (function loop(){requestAnimationFrame(loop);if(!on)return;
-pts[0][0]+=(mx-pts[0][0])*.16;pts[0][1]+=(my-pts[0][1])*.16;
-for(var i=1;i<N;i++){pts[i][0]+=(pts[i-1][0]-pts[i][0])*.28;pts[i][1]+=(pts[i-1][1]-pts[i][1])*.28}
-g.clearRect(0,0,W,H);g.lineCap='round';g.lineJoin='round';
-for(var pass=0;pass<2;pass++){for(var j=N-1;j>0;j--){var t=1-j/N;
-g.strokeStyle=pass?'rgba(3,4,14,'+(.35+.65*t)+')':'rgba(38,50,170,'+(.2+.6*t)+')';
-g.lineWidth=(pass?64:130)*(.2+.8*t);
-g.beginPath();g.moveTo(pts[j][0],pts[j][1]);g.lineTo(pts[j-1][0],pts[j-1][1]);g.stroke()}}
+vis+=(want-vis)*.08;tr.style.opacity=vis.toFixed(3);
+pts[0][0]+=(mx-pts[0][0])*.13;pts[0][1]+=(my-pts[0][1])*.13;
+for(var i=1;i<N;i++){pts[i][0]+=(pts[i-1][0]-pts[i][0])*.24;pts[i][1]+=(pts[i-1][1]-pts[i][1])*.24}
+L.forEach(function(l){var g=l.g;g.clearRect(0,0,W,H);g.fillStyle=l.c;
+function rad(j){return l.R*K*(l.m+(1-l.m)*Math.pow(1-j/N,l.e))}
+for(var j=N-1;j>=0;j--){g.beginPath();g.arc(pts[j][0]*K,pts[j][1]*K,rad(j),0,6.2832);g.fill();
+if(j>0){g.beginPath();g.arc((pts[j][0]+pts[j-1][0])*K/2,(pts[j][1]+pts[j-1][1])*K/2,(rad(j)+rad(j-1))/2,0,6.2832);g.fill()}}})
 })();
 var hdr=$('#hdr');function sc(){hdr.classList.toggle('sc',scrollY>400)}addEventListener('scroll',sc,{passive:true});sc();
 /* reveal */
@@ -309,6 +323,16 @@ setTimeout(function(){ri=n;show();pan.forEach(function(p){p.style.transition='no
 pan.forEach(function(p){p.style.transition='opacity .55s ease,transform .6s cubic-bezier(.2,.8,.2,1),filter .55s ease';p.style.opacity=1;p.style.transform='none';p.style.filter='none'});
 setTimeout(function(){busy=false},550)},400)}
 $('#nx').onclick=function(){go(1)};$('#pv').onclick=function(){go(-1)};show();
+/* mosaic */
+document.querySelectorAll('.tile').forEach(function(t,i){t.style.setProperty('--d',((i%3)*.09)+'s');io.observe(t)});
+var mcols=[].slice.call(document.querySelectorAll('.mcol')),mk=[.6,1.3,.9],mos=$('#mos'),hc=document.querySelector('.hc'),hb=document.querySelector('.hbot'),ly=scrollY,bl=0,red=matchMedia('(prefers-reduced-motion:reduce)').matches;
+(function mloop(){requestAnimationFrame(mloop);var y=scrollY,v=y-ly;ly=y;
+var hp=Math.min(1,y/(innerHeight*.7));hc.style.opacity=1-hp;hc.style.filter=hp>.02?'blur('+(hp*10).toFixed(1)+'px)':'none';hc.style.transform='translateY('+(-hp*50).toFixed(1)+'px)';hb.style.opacity=Math.max(0,1-hp*1.5);
+if(red)return;
+bl+=(Math.min(7,Math.abs(v)*.25)-bl)*.15;
+var r=mos.getBoundingClientRect();if(r.bottom<-200||r.top>innerHeight+200)return;
+var p=(innerHeight-r.top)/(innerHeight+r.height);
+mcols.forEach(function(c,i){var ty=(.5-p)*mk[i]*180;c.style.transform='translate3d(0,'+ty.toFixed(1)+'px,0) scaleY('+(1+bl*.004).toFixed(4)+')';c.style.filter=bl>.2?'blur('+bl.toFixed(2)+'px)':'none'})})();
 /* faq */
 var F=[['Сколько сохнет диван после химчистки?','Обычно 3–4 часа естественным путём, а при заказе сушки мебельным феном — около 1 часа.'],['Безопасна ли химия для маленьких детей и животных?','Да. Мы используем сертифицированные биоразлагаемые составы Chemspec и Kiehl и полностью вымываем их водой.'],['Выезжаете ли вы в Яблоновский?','Да, работаем по всему Краснодару и Яблоновскому без наценки за выезд.'],['Что делать, если пятно не отойдет?','Заранее предупреждаем о застарелых пятнах и ожогах ткани. Оплата только за реальный результат после осмотра.']];
 $('#acc').innerHTML=F.map(function(f,i){return '<div class="fi'+(i==0?' on':'')+'"><button class="fb">'+f[0]+'<i>+</i></button><div class="fa"><div><p>'+f[1]+'</p></div></div></div>'}).join('');
