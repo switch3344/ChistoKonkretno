@@ -108,7 +108,7 @@ nav{display:flex;gap:26px;font-size:14px}nav a{opacity:.7;transition:opacity .2s
 .nv{display:flex;align-items:center;justify-content:space-between;margin-top:22px}
 .nv .d{display:flex;gap:8px}.nv .d i{width:8px;height:8px;border-radius:50%;background:#2A2E3E;transition:.3s}.nv .d i.on{background:var(--ac);width:24px;border-radius:9px}
 .nb{width:50px;height:50px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:#fff;font-size:18px;cursor:pointer;margin-left:8px;transition:.2s}.nb:hover{background:var(--ac)}
-#rs{transition:opacity .35s,transform .35s}
+#rs .rl,#rs .ph,#rs .met{will-change:opacity,transform}
 /* faq */
 .fq{display:grid;grid-template-columns:1fr 1.3fr;gap:50px}
 @media(max-width:900px){.fq{grid-template-columns:1fr;gap:10px}}
@@ -302,7 +302,12 @@ var R=[
 var ri=0,rs=$('#rs');
 $('#dots').innerHTML=R.map(function(){return '<i></i>'}).join('');
 function show(){var r=R[ri];$('#rt').textContent=r.t;$('#ph').style.backgroundImage='url('+r.i+'),linear-gradient(135deg,#2E3A6E,#4F60A8)';$('#rq').textContent=r.q;$('#ra').textContent=r.a;$('#m2x').textContent=r.m[1];$('#m3').textContent=r.m[2];document.querySelectorAll('#dots i').forEach(function(d,i){d.classList.toggle('on',i==ri)})}
-function go(d){rs.style.opacity=0;setTimeout(function(){ri=(ri+d+R.length)%R.length;show();rs.style.opacity=1},300)}
+var busy=false,pan=document.querySelectorAll('.rl,.rr .ph,.rr .met');
+function go(d){if(busy)return;busy=true;var n=(ri+d+R.length)%R.length;new Image().src=R[n].i;
+pan.forEach(function(p){p.style.transition='opacity .4s ease,transform .4s ease,filter .4s ease';p.style.opacity=0;p.style.transform='translateX('+(-28*d)+'px)';p.style.filter='blur(6px)'});
+setTimeout(function(){ri=n;show();pan.forEach(function(p){p.style.transition='none';p.style.transform='translateX('+(28*d)+'px)'});void pan[0].offsetWidth;
+pan.forEach(function(p){p.style.transition='opacity .55s ease,transform .6s cubic-bezier(.2,.8,.2,1),filter .55s ease';p.style.opacity=1;p.style.transform='none';p.style.filter='none'});
+setTimeout(function(){busy=false},550)},400)}
 $('#nx').onclick=function(){go(1)};$('#pv').onclick=function(){go(-1)};show();
 /* faq */
 var F=[['Сколько сохнет диван после химчистки?','Обычно 3–4 часа естественным путём, а при заказе сушки мебельным феном — около 1 часа.'],['Безопасна ли химия для маленьких детей и животных?','Да. Мы используем сертифицированные биоразлагаемые составы Chemspec и Kiehl и полностью вымываем их водой.'],['Выезжаете ли вы в Яблоновский?','Да, работаем по всему Краснодару и Яблоновскому без наценки за выезд.'],['Что делать, если пятно не отойдет?','Заранее предупреждаем о застарелых пятнах и ожогах ткани. Оплата только за реальный результат после осмотра.']];
