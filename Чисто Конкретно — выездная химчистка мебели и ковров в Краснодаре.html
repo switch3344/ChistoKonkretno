@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Чисто Конкретно — выездная химчистка мебели и ковров в Краснодаре</title>
+<meta name="description" content="Выездная химчистка мебели и ковров в Краснодаре и Яблоновском. Высыхание за 3–4 часа. Оплата после результата.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0C10;--card:#13151C;--line:rgba(255,255,255,.08);--ac:#6875F5;--tx:#E9EAF0;--mu:#9AA0B4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+*{box-sizing:border-box}
+body{margin:0;background:#0B0C10;color:var(--tx);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600;font-size:1.14em;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:110px 0;position:relative}
+h2{font-family:Inter,sans-serif;font-size:clamp(2.4rem,4.2vw,3.6rem);font-weight:500;line-height:1.1;letter-spacing:-.03em;text-align:center;color:#F3F4F6;max-width:820px;margin:0 auto 3.5rem}.fq h2{text-align:left;margin:0}
+h2 .serif{color:#8F9AFF}
+.rv{filter:blur(12px);opacity:0;transform:translateY(20px);transition:filter .9s ease,opacity .9s ease,transform .9s ease}
+.rv.in{filter:blur(0);opacity:1;transform:none}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:500;font-size:15px;border:1px solid transparent;cursor:pointer;transition:.25s;font-family:inherit}
+.btn-dark{background:#111318;color:#fff}.btn-dark:hover{background:#2E3A6E}
+.btn-glass{background:rgba(255,255,255,.35);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:rgba(17,19,24,.15);color:#111318}.btn-glass:hover{background:rgba(255,255,255,.6)}
+.btn-ac{background:var(--ac);color:#fff}.btn-ac:hover{background:#7F8BFF}
+.btn-line{background:rgba(255,255,255,.06);border-color:var(--line);color:#fff}.btn-line:hover{background:rgba(255,255,255,.12)}
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);color:#0F1117;transition:background .35s,color .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}header.sc{background:rgba(11,12,16,.8);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom-color:var(--line);color:#fff}
+.hbar{margin:0 auto;max-width:1280px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;transition:padding .35s}header.sc .hbar{padding:12px 24px}
+.logo{--lc:#0F1117;--lb:#D6D9E2}header.sc .logo,footer .logo{--lc:#fff;--lb:#0B0C10}.lg2{display:inline-flex;flex-direction:column;align-items:flex-start;font:800 15px/1 Inter,Arial,sans-serif;letter-spacing:-.01em}.lg2 b{display:block;background:var(--lc);color:var(--lb);padding:3px 6px 2px;font-weight:800;transition:.35s}.lg2 i{display:block;height:2px;background:var(--lc);margin:3px 0 2px;transition:.35s}.lg2 em{font-style:normal;color:var(--lc);transition:.35s}.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.12em;font-size:13px}
+nav{display:flex;gap:26px;font-size:14px}nav a{opacity:.7;transition:opacity .2s}nav a:hover{opacity:1}
+.hr{display:flex;align-items:center;gap:16px;font-size:14px}
+@media(max-width:900px){nav{display:none}.hr .call{display:none}}
+/* hero */
+#hero{min-height:100vh;min-height:100svh;background:#D6D9E2;color:#0D0F14;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:130px 24px 36vh;overflow:hidden}
+#dome{position:absolute;left:50%;top:52%;transform:translateX(-50%);width:160vw;height:110vh;border-radius:50% 50% 0 0;background:radial-gradient(50% 65% at 50% 35%,#4F63B0 0%,#253366 38%,#0B0C10 78%);filter:blur(45px);pointer-events:none;z-index:1}
+#fade{position:absolute;left:0;right:0;bottom:0;height:140px;background:linear-gradient(to bottom,transparent,#0B0C10);z-index:1}
+#trail{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;filter:blur(18px)}
+.hc{position:relative;z-index:2;max-width:980px}
+#hero h1{color:#0D0F14;font-size:clamp(40px,7.2vw,92px);line-height:1.02;letter-spacing:-.035em;font-weight:500;margin:0 0 26px}
+#hero p.sub{font-size:clamp(16px,1.7vw,20px);color:#3B3F4D;max-width:660px;margin:0 auto 36px;line-height:1.55}
+.hbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hbot{position:absolute;z-index:2;left:24px;right:24px;bottom:30px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#C8CDE6;font-size:13px;text-align:left;max-width:1200px;margin:0 auto}
+.arr{flex:none;width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;font-size:20px;backdrop-filter:blur(10px);transition:.25s}.arr:hover{background:rgba(255,255,255,.15)}
+/* before after */
+#ba{position:relative;height:clamp(260px,46vw,520px);border-radius:28px;overflow:hidden;user-select:none;touch-action:pan-y;cursor:ew-resize;border:1px solid var(--line)}
+.bi1{position:absolute;inset:0;background-color:#8A90B0;background-image:url(https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=85),linear-gradient(135deg,#C9CCDA,#8A90B0);background-size:cover;background-position:center;filter:brightness(1.05) contrast(1.05)}.bi1.dirty{background-image:radial-gradient(circle at 35% 60%,rgba(65,42,20,.55) 0%,transparent 25%),radial-gradient(circle at 65% 55%,rgba(50,35,15,.45) 0%,transparent 30%),radial-gradient(circle at 78% 72%,rgba(60,40,20,.4) 0%,transparent 18%),url(https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=85);background-blend-mode:multiply;filter:sepia(.45) brightness(.68) contrast(1.2) saturate(.7)}
+#bb{position:absolute;inset:0;width:50%;overflow:hidden}
+#bb .bi1{inset:auto;left:0;top:0}
+#hd{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-1px)}
+#hd i{position:absolute;top:50%;left:50%;width:48px;height:48px;margin:-24px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-style:normal;font-size:16px;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.tag{position:absolute;top:16px;padding:6px 14px;border-radius:999px;background:rgba(11,12,16,.7);font-size:12px;letter-spacing:.08em;z-index:3}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.gc{height:320px;border-radius:24px;overflow:hidden;position:relative;border:1px solid var(--line)}
+.gc div.im{position:absolute;inset:0;transition:transform .7s ease;background-size:cover;background-position:center}.gc:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(11,12,16,.88),rgba(11,12,16,.1) 60%,transparent);z-index:1;pointer-events:none}
+.gc:hover div.im{transform:scale(1.06)}
+.gc span{position:absolute;left:18px;bottom:16px;font-weight:500;z-index:2;background:rgba(11,12,16,.65);padding:6px 14px;border-radius:999px;font-size:14px}
+@media(max-width:800px){.g3{grid-template-columns:1fr}}
+.mq{overflow:hidden;margin-top:40px;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.mt{display:flex;gap:12px;width:max-content;animation:mq 30s linear infinite}
+.mt span{white-space:nowrap;padding:12px 22px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:14px;color:#C9CCDA}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* steps */
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.st{background:#14161D;border:1px solid var(--line);border-radius:24px;padding:28px;min-height:440px;display:flex;flex-direction:column;justify-content:space-between;transition:background .45s,color .45s}
+.st:hover{background:#E4E7F0;color:#0B0C10}
+.st .n{font-size:13px;letter-spacing:.1em;color:var(--ac);font-weight:600}
+.st h3{font-size:24px;margin:14px 0 10px;font-weight:500;letter-spacing:-.02em}
+.st p{margin:0;color:var(--mu);line-height:1.55;font-size:15px;transition:color .45s}.st:hover p{color:#0B0C10}
+.st svg{width:100%;height:120px;margin-top:24px;stroke:currentColor;fill:none;stroke-width:1.2;opacity:.8}
+@media(max-width:1000px){.g4{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.g4{grid-template-columns:1fr}.st{min-height:360px}}
+/* calc */
+.calc{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}
+@media(max-width:900px){.calc{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 28px}
+.chip{padding:12px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--tx);cursor:pointer;font:500 14px 'Inter',sans-serif;transition:.2s}
+.chip small{color:var(--mu);margin-left:6px}
+.chip.on{background:var(--ac);border-color:var(--ac)}.chip.on small{color:#E3E6FF}
+.chip:hover{border-color:var(--ac)}
+.ck{display:flex;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--line);cursor:pointer;font-size:15px}
+.ck input{accent-color:#6875F5;width:18px;height:18px}
+.lbl{font-size:12px;letter-spacing:.1em;color:var(--mu);text-transform:uppercase}
+#m2w{display:none;align-items:center;gap:12px;margin:-12px 0 24px;font-size:14px;color:var(--mu)}
+#m2{width:90px;padding:10px 12px;border-radius:12px;background:#0B0C10;border:1px solid var(--line);color:#fff;font:inherit}
+.tot{background:radial-gradient(circle at 85% 0%,rgba(104,117,245,.55),transparent 60%),radial-gradient(circle at 0% 100%,rgba(46,58,110,.8),transparent 60%),#13151C;border:1px solid rgba(104,117,245,.35);box-shadow:0 0 80px rgba(79,96,168,.25);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:14px}
+#sum{font-size:clamp(38px,5vw,56px);font-weight:500;letter-spacing:-.03em;line-height:1}
+#lst{color:var(--mu);font-size:14px;min-height:40px;line-height:1.5}
+/* bars */
+.g3b{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.g3b{grid-template-columns:1fr}}
+.bc{padding:30px}.bc h3{font-size:20px;font-weight:500;margin:0 0 28px;letter-spacing:-.015em}
+.bi{margin-bottom:22px}.bi .r{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px;color:var(--mu);gap:12px}.bi .r b{color:#fff;font-weight:600}.bi.m .r{color:#fff}
+.bt{height:10px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.bf{height:100%;width:0;border-radius:99px;background:#3A3F55;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.bi.m .bf{background:linear-gradient(90deg,#4F60A8,#8F9AFF)}
+/* reviews */
+.rev{display:grid;grid-template-columns:1.2fr 1fr;overflow:hidden;padding:0}
+@media(max-width:900px){.rev{grid-template-columns:1fr}}
+.rl{padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:30px;min-height:420px}
+.pill{align-self:flex-start;padding:7px 14px;border-radius:999px;background:rgba(104,117,245,.15);color:#A9B2FF;font-size:13px}
+.q{font-size:clamp(20px,2.4vw,28px);line-height:1.35;letter-spacing:-.01em;margin:0}
+.rr{background:#0F1118;padding:24px;display:flex;flex-direction:column;gap:16px}
+.ph{background-size:cover!important;background-position:center;flex:1;min-height:200px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#2E3A6E,#4F60A8)}
+.met{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.met div{border:1px solid var(--line);border-radius:14px;padding:12px}.met b{display:block;font-size:17px;font-weight:600;margin-top:4px}.met span{font-size:11px;color:var(--mu)}
+.nv{display:flex;align-items:center;justify-content:space-between;margin-top:22px}
+.nv .d{display:flex;gap:8px}.nv .d i{width:8px;height:8px;border-radius:50%;background:#2A2E3E;transition:.3s}.nv .d i.on{background:var(--ac);width:24px;border-radius:9px}
+.nb{width:50px;height:50px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:#fff;font-size:18px;cursor:pointer;margin-left:8px;transition:.2s}.nb:hover{background:var(--ac)}
+#rs{transition:opacity .35s,transform .35s}
+/* faq */
+.fq{display:grid;grid-template-columns:1fr 1.3fr;gap:50px}
+@media(max-width:900px){.fq{grid-template-columns:1fr;gap:10px}}
+.fi{border-bottom:1px solid var(--line)}
+.fb{width:100%;background:none;border:0;color:#fff;text-align:left;padding:24px 0;display:flex;justify-content:space-between;gap:20px;font:500 19px 'Inter',sans-serif;cursor:pointer;align-items:center}
+.fb i{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-style:normal;font-size:20px;transition:.35s}
+.fi.on .fb i{transform:rotate(45deg);background:var(--ac);border-color:var(--ac)}
+.fa{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}.fi.on .fa{grid-template-rows:1fr}
+.fa div{overflow:hidden}.fa p{margin:0 0 24px;color:var(--mu);line-height:1.65;max-width:560px}
+/* cta */
+.cta{padding:56px;background:radial-gradient(ellipse at 100% 50%,rgba(79,96,168,.6),transparent 60%),#13151C;border:1px solid var(--line);border-radius:32px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+@media(max-width:900px){.cta{grid-template-columns:1fr;padding:30px}}
+.cta h2{margin:0;font-size:clamp(28px,4vw,46px);text-align:left}
+.cta input{width:100%;padding:16px 20px;border-radius:999px;background:rgba(0,0,0,.35);border:1px solid var(--line);color:#fff;font:inherit;margin-bottom:12px}
+footer{padding:80px 0 0;overflow:hidden}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;font-size:14px;color:var(--mu);line-height:2}
+@media(max-width:800px){.fg{grid-template-columns:1fr 1fr}}
+.fg h4{color:#fff;font-size:13px;letter-spacing:.1em;margin:0 0 10px;font-weight:600}.fg a:hover{color:#fff}
+.soc{display:flex;gap:10px;margin-top:14px}.soc a{padding:9px 16px;border:1px solid var(--line);border-radius:999px;color:#fff}.soc a:hover{background:var(--ac)}
+.giant{font-size:9.2vw;font-weight:700;letter-spacing:-.04em;line-height:.78;text-align:center;white-space:nowrap;width:100%;margin-top:60px;height:.5em;overflow:hidden;color:rgba(255,255,255,.07);user-select:none}
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,120px);background:#fff;color:#111;padding:14px 22px;border-radius:999px;font-size:14px;z-index:99;transition:.4s;max-width:90%}.toast.on{transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="gi" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8F9AFF" stop-opacity=".6"/><stop offset="1" stop-color="#4F60A8" stop-opacity=".15"/></linearGradient>
+<symbol id="ele" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 17c0-4 3-7 7-7s6 2 6 5v5h-2v-3h-2v3h-2v-3h-3v3H9v-4zm13 0c2 0 3 1 3 3s-1 3-2 3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M23 7c-1 1.2-1.6 2-1.6 2.8a1.6 1.6 0 003.2 0C24.6 9 24 8.200 23 7z" fill="currentColor"/></symbol>
+</defs></svg>
+
+<header id="hdr"><div class="hbar">
+<a href="#hero" class="logo"><span class="lg2" role="img" aria-label="Чисто Конкретно"><span class="t"><b>ЧИСТО</b><i></i></span><em>КОНКРЕТНО</em></span></a>
+<nav><a href="#steps">Этапы</a><a href="#ba-s">До / После</a><a href="#calc">Калькулятор</a><a href="#rev">Отзывы</a><a href="#faq">FAQ</a></nav>
+<div class="hr"><a class="call" href="tel:+79186538494">Позвонить</a><a class="btn btn-ac" style="padding:10px 18px;font-size:14px" href="https://t.me/chisto_konkretno" target="_blank" rel="noopener">Оценить по фото</a></div>
+</div></header>
+
+<section id="hero">
+<div id="dome"></div><div id="fade"></div><canvas id="trail"></canvas>
+<div class="hc">
+<h1>Химчистка с выездом — идеальная <span class="serif">свежесть</span> вашей мебели</h1>
+<p class="sub">Глубокая экстракция пятен, запахов и пылевых клещей на дому в Краснодаре. Высыхание за 3–4 часа.</p>
+<div class="hbtns"><a href="#calc" class="btn btn-dark">Рассчитать стоимость</a><a href="https://t.me/chisto_konkretno" target="_blank" rel="noopener" class="btn btn-glass">Оценить по фото в Telegram</a></div>
+</div>
+<div class="hbot"><span style="max-width:320px">Профессиональное оборудование Karcher &amp; Santoemma. Оплата после результата.</span><a href="#ba-s" class="arr" aria-label="Вниз">↓</a></div>
+</section>
+
+<section id="ba-s"><div class="wrap">
+<h2 class="rv">Результат, который <span class="serif">видно</span> с первого взгляда</h2>
+<div id="ba" class="rv">
+<div class="bi1"></div>
+<div id="bb"><div class="bi1 dirty" id="bs"></div></div>
+<span class="tag" style="left:16px">ДО</span><span class="tag" style="right:16px">ПОСЛЕ</span>
+<div id="hd"><i>↔</i></div>
+</div>
+<div class="g3">
+<div class="gc rv"><div class="im" style="background-image:url(https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=900&q=80),linear-gradient(135deg,#2E3A6E,#1B2040)"></div><span>Диваны и кресла</span></div>
+<div class="gc rv"><div class="im" style="background-image:url(https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80),linear-gradient(135deg,#3B4A8A,#13151C)"></div><span>Матрасы и спальные места</span></div>
+<div class="gc rv"><div class="im" style="background-image:url(https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=900&q=80),linear-gradient(135deg,#4F60A8,#0B0C10)"></div><span>Ковры и ковролин</span></div>
+</div>
+<div class="mq"><div class="mt" id="mt"></div></div>
+</div></section>
+
+<section id="steps"><div class="wrap">
+<h2 class="rv">От заявки до чистой мебели за <span class="serif">четыре</span> простых шага</h2>
+<div class="g4">
+<div class="st rv"><div><div class="n">01</div><h3>Оценка по фото</h3><p>Пришлите фото дивана в Telegram или рассчитайте цену на сайте за 30 секунд.</p></div><svg viewBox="0 0 200 120"><path d="M100 12l56 28v40l-56 28-56-28V40z" fill="url(#gi)"/><path d="M100 12l56 28-56 28-56-28zM44 40v40l56 28M156 40v40l-56 28M100 68v40"/><circle cx="100" cy="40" r="10"/><circle cx="100" cy="40" r="4"/><path d="M62 56l16 8M138 56l-16 8"/></svg></div>
+<div class="st rv"><div><div class="n">02</div><h3>Глубокая промывка</h3><p>Наносим энзимный преспрей и вытягиваем грязь с глубины до 10 см вакуумным экстрактором.</p></div><svg viewBox="0 0 200 120"><path d="M30 66l70-34 70 34-70 34z" fill="url(#gi)"/><path d="M30 66v14l70 34 70-34V66M100 100v14M52 55l70 34M76 43l70 34M100 32L30 66M124 43L54 77M148 55L78 89"/><path d="M100 32V12M88 12h24"/></svg></div>
+<div class="st rv"><div><div class="n">03</div><h3>Нейтрализация и уход</h3><p>Вымываем остатки химии кондиционером-ополаскивателем. Ткань становится мягкой и без запаха.</p></div><svg viewBox="0 0 200 120"><path d="M100 6c-22 28-32 44-32 56a32 32 0 0064 0c0-12-10-28-32-56z" fill="url(#gi)"/><path d="M84 64a16 16 0 0016 16"/><ellipse cx="100" cy="98" rx="54" ry="14"/><ellipse cx="100" cy="98" rx="32" ry="8"/><ellipse cx="100" cy="98" rx="12" ry="3"/></svg></div>
+<div class="st rv"><div><div class="n">04</div><h3>Быстрая сушка</h3><p>Мебель полностью высыхает за 3–4 часа (или за 1 час с нашей турбо-сушкой).</p></div><svg viewBox="0 0 200 120"><circle cx="100" cy="52" r="34" fill="url(#gi)"/><path d="M100 28v24l16 10"/><path d="M100 4v8M54 52h-8M154 52h-8M66 18l5 6M134 18l-5 6"/><ellipse cx="100" cy="104" rx="46" ry="10"/><ellipse cx="100" cy="104" rx="24" ry="5"/></svg></div>
+</div></div></section>
+
+<section id="calc"><div class="wrap">
+<h2 class="rv">Рассчитайте стоимость химчистки <span class="serif">онлайн</span></h2>
+<div class="calc rv">
+<div class="card" style="padding:32px">
+<div class="lbl">Что чистим</div>
+<div class="chips" id="chips"></div>
+<div id="m2w"><label for="m2">Площадь ковра, м²:</label><input id="m2" type="number" min="1" max="200" value="4"></div>
+<div class="lbl" style="margin-bottom:6px">Дополнительно</div>
+<div id="ext"></div>
+</div>
+<div class="tot">
+<div class="lbl">Ориентировочно</div>
+<div id="sum">0 ₽</div>
+<div id="lst">Выберите, что нужно почистить</div>
+<a id="tg" class="btn btn-ac" href="https://t.me/chisto_konkretno" target="_blank" rel="noopener">Заказать в Telegram</a>
+<div style="font-size:12px;color:#A9B0CC">Точную цену назовём по фото. Оплата после результата.</div>
+</div></div></div></section>
+
+<section id="eff"><div class="wrap">
+<h2 class="rv">Эффективность, которая <span class="serif">выделяется</span> на деле</h2>
+<div class="g3b">
+<div class="card bc rv"><h3>Глубина очистки ворса</h3><div class="bi m"><div class="r"><span>Чисто Конкретно (Экстрактор)</span><b>99.2%</b></div><div class="bt"><div class="bf" data-w="99.2"></div></div></div><div class="bi"><div class="r"><span>Бытовой пылесос</span><b>25%</b></div><div class="bt"><div class="bf" data-w="25"></div></div></div><div class="bi"><div class="r"><span>Ручная замывка пеной</span><b>15%</b></div><div class="bt"><div class="bf" data-w="15"></div></div></div></div>
+<div class="card bc rv"><h3>Удаление пятен и запахов</h3><div class="bi m"><div class="r"><span>Чисто Конкретно (Chemspec)</span><b>98.5%</b></div><div class="bt"><div class="bf" data-w="98.5"></div></div></div><div class="bi"><div class="r"><span>Сетевой клининг</span><b>68%</b></div><div class="bt"><div class="bf" data-w="68"></div></div></div><div class="bi"><div class="r"><span>Народные средства</span><b>20%</b></div><div class="bt"><div class="bf" data-w="20"></div></div></div></div>
+<div class="card bc rv"><h3>Безопасность для ткани и детей</h3><div class="bi m"><div class="r"><span>Чисто Конкретно (Эко-состав)</span><b>100%</b></div><div class="bt"><div class="bf" data-w="100"></div></div></div><div class="bi"><div class="r"><span>Агрессивная химия с хлором</span><b>35%</b></div><div class="bt"><div class="bf" data-w="35"></div></div></div></div>
+</div></div></section>
+
+<section id="rev"><div class="wrap">
+<h2 class="rv">Нам доверяют сотни семей в <span class="serif">Краснодаре</span></h2>
+<div class="card rev rv"><div id="rs" style="display:contents">
+<div class="rl"><div><span class="pill" id="rt"></span></div><p class="q" id="rq"></p><div><b id="ra"></b><div style="color:#9AA0B4;font-size:14px;margin-top:4px">⭐ 4.7 на Яндекс Картах</div></div></div>
+<div class="rr"><div class="ph" id="ph"></div>
+<div class="met"><div><span>Удалено пятен</span><b id="m2x"></b></div><div><span>Экономия на перетяжке</span><b id="m3"></b></div></div></div>
+</div></div>
+<div class="nv"><div class="d" id="dots"></div><div><button class="nb" id="pv" aria-label="Назад">←</button><button class="nb" id="nx" aria-label="Вперёд">→</button></div></div>
+</div></section>
+
+<section id="faq"><div class="wrap"><div class="fq">
+<h2 class="rv">Ответы на частые <span class="serif">вопросы</span></h2>
+<div id="acc"></div>
+</div></div></section>
+
+<section style="padding-top:20px"><div class="wrap"><div class="cta rv">
+<h2>Узнайте точную стоимость по фото за <span class="serif">5 минут</span></h2>
+<div>
+<input id="nm" placeholder="Ваше имя и телефон" autocomplete="tel">
+<a id="ctat" class="btn btn-ac" style="width:100%;margin-bottom:14px" href="https://t.me/chisto_konkretno" target="_blank" rel="noopener">Отправить фото в Telegram</a>
+<div style="text-align:center"><a href="tel:+79186538494" style="font-size:22px;font-weight:500">+7 (918) 653-84-94</a></div>
+</div></div></div></section>
+
+<footer><div class="wrap">
+<div class="fg">
+<div><a href="#hero" class="logo" style="color:#fff"><span class="lg2" role="img" aria-label="Чисто Конкретно"><span class="t"><b>ЧИСТО</b><i></i></span><em>КОНКРЕТНО</em></span></a><p style="margin:14px 0 0;line-height:1.6">Выездная химчистка мебели и ковров. Краснодар и Яблоновский.</p><div class="soc"><a href="https://t.me/chisto_konkretno" target="_blank" rel="noopener">Telegram</a></div></div>
+<div><h4>НАВИГАЦИЯ</h4><a href="#steps">Этапы</a><br><a href="#ba-s">До / После</a><br><a href="#calc">Калькулятор</a><br><a href="#faq">FAQ</a></div>
+<div><h4>УСЛУГИ</h4>Диваны<br>Матрасы<br>Ковры<br>Кресла и стулья</div>
+<div><h4>КОНТАКТЫ</h4><a href="tel:+79186538494">+7 (918) 653-84-94</a><br>г. Краснодар,<br>ул. Красных Партизан, 1/3 к4<br>Краснодар · Яблоновский</div>
+</div>
+</div>
+<div class="giant" aria-hidden="true">ЧИСТО КОНКРЕТНО</div>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var TG='https://t.me/chisto_konkretno';
+/* badges */
+var bd=['✦ Химия Chemspec (США)','✦ Экстракторы Santoemma','✦ Гипоаллергенно 0+','✦ Рейтинг 4.7 в Картах','✦ Выезд за 60 минут','✦ Гарантия чистоты'];
+var h='';for(var k=0;k<2;k++)bd.forEach(function(b){h+='<span>'+b+'</span>'});$('#mt').innerHTML=h;
+/* trail */
+var hero=$('#hero'),cv=$('#trail'),g=cv.getContext('2d'),pts=[],mx=0,my=0,on=false,W=0,H=0,N=40;
+function rs(){W=cv.width=hero.offsetWidth;H=cv.height=hero.offsetHeight}
+rs();addEventListener('resize',rs);
+hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;if(!on){on=true;pts=[];for(var i=0;i<N;i++)pts.push([mx,my])}});
+(function loop(){requestAnimationFrame(loop);if(!on)return;
+pts[0][0]+=(mx-pts[0][0])*.16;pts[0][1]+=(my-pts[0][1])*.16;
+for(var i=1;i<N;i++){pts[i][0]+=(pts[i-1][0]-pts[i][0])*.28;pts[i][1]+=(pts[i-1][1]-pts[i][1])*.28}
+g.clearRect(0,0,W,H);g.lineCap='round';g.lineJoin='round';
+for(var pass=0;pass<2;pass++){for(var j=N-1;j>0;j--){var t=1-j/N;
+g.strokeStyle=pass?'rgba(3,4,14,'+(.35+.65*t)+')':'rgba(38,50,170,'+(.2+.6*t)+')';
+g.lineWidth=(pass?64:130)*(.2+.8*t);
+g.beginPath();g.moveTo(pts[j][0],pts[j][1]);g.lineTo(pts[j-1][0],pts[j-1][1]);g.stroke()}}
+})();
+var hdr=$('#hdr');function sc(){hdr.classList.toggle('sc',scrollY>400)}addEventListener('scroll',sc,{passive:true});sc();
+/* reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.bf').forEach(function(b){b.style.width=b.dataset.w+'%'});io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+/* before/after */
+var ba=$('#ba'),bb=$('#bb'),hd=$('#hd'),bs=$('#bs'),drag=false;
+function sz(){bs.style.setProperty('width',ba.offsetWidth+'px');bs.style.height=ba.offsetHeight+'px'}
+function mv(x){var r=ba.getBoundingClientRect(),p=Math.max(0,Math.min(1,(x-r.left)/r.width))*100;bb.style.width=p+'%';hd.style.left=p+'%'}
+ba.addEventListener('pointerdown',function(e){drag=true;ba.setPointerCapture(e.pointerId);mv(e.clientX)});
+ba.addEventListener('pointermove',function(e){if(drag)mv(e.clientX)});
+ba.addEventListener('pointerup',function(){drag=false});
+ba.addEventListener('pointercancel',function(){drag=false});
+addEventListener('resize',sz);sz();
+/* calc */
+var items=[['Прямой диван',2000],['Угловой диван',2800],['Большой П-образный диван',3500],['Матрас двуспальный',2200],['Кресло / Стулья',800],['Ковер (за м²)',300]];
+var extras=[['Удаление сложных запахов',500],['Экспресс-сушка феном за 1 час',700],['Защитная пропитка ткани',600]];
+var sel={},ex={};
+var fmt=function(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,'\u00A0')+' ₽'};
+$('#chips').innerHTML=items.map(function(it,i){return '<button class="chip" data-i="'+i+'">'+it[0]+'<small>'+fmt(it[1])+'</small></button>'}).join('');
+$('#ext').innerHTML=extras.map(function(it,i){return '<label class="ck"><input type="checkbox" data-e="'+i+'"><span style="flex:1">'+it[0]+'</span><span style="color:#9AA0B4">+'+fmt(it[1])+'</span></label>'}).join('');
+function calc(){var t=0,l=[],m=Math.max(1,+$('#m2').value||1);
+items.forEach(function(it,i){if(sel[i]){if(i==5){t+=it[1]*m;l.push('Ковер '+m+' м²')}else{t+=it[1];l.push(it[0])}}});
+var hasItems=l.length>0;
+extras.forEach(function(it,i){if(ex[i]&&hasItems){t+=it[1];l.push(it[0])}});
+$('#sum').textContent=fmt(t);$('#lst').textContent=hasItems?l.join(' · '):'Выберите, что нужно почистить';
+var msg=hasItems?'Здравствуйте! Хочу заказать химчистку в «Чисто Конкретно»: '+l.join(', ')+'. Ориентировочно: '+fmt(t)+'.':'Здравствуйте! Хочу рассчитать химчистку мебели.';
+$('#tg').href=TG+'?text='+encodeURIComponent(msg);$('#tg').dataset.m=msg;$('#m2w').style.display=sel[5]?'flex':'none'}
+$('#chips').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;var i=b.dataset.i;sel[i]=!sel[i];b.classList.toggle('on',!!sel[i]);calc()});
+$('#ext').addEventListener('change',function(e){ex[e.target.dataset.e]=e.target.checked;calc()});
+$('#m2').addEventListener('input',calc);
+function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('on');setTimeout(function(){el.classList.remove('on')},3500)}
+$('#tg').addEventListener('click',function(){var m=this.dataset.m||'';if(navigator.clipboard){navigator.clipboard.writeText(m).then(function(){toast('Текст заказа скопирован. Если он не появился в чате сам, просто вставьте его')},function(){})}});
+calc();
+/* reviews */
+var R=[
+{i:'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80',t:'Краснодар, Фестивальный',q:'«Светлый диван выглядел безнадёжно: кофе и детские фломастеры. Мастера приехали через час, и через три часа диван был как из магазина. Пятен не осталось, запаха тоже.»',a:'Анна К.',m:['1.5 часа','100%','25 000 ₽']},
+{i:'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80',t:'Краснодар, Юбилейный',q:'«Боялась за аллергика-ребёнка, но состав оказался безопасным. Матрас после чистки ничем не пахнет, а пыль и клещи исчезли. Приехали без наценки за выезд.»',a:'Марина С.',m:['2 часа','100%','18 000 ₽']},
+{i:'https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=900&q=80',t:'ул. Красных Партизан',q:'«Заказали чистку углового дивана и ковра перед приездом гостей. Оплатили только после осмотра результата. Теперь рекомендуем друзьям и соседям.»',a:'Дмитрий В.',m:['2.5 часа','97%','32 000 ₽']}];
+var ri=0,rs=$('#rs');
+$('#dots').innerHTML=R.map(function(){return '<i></i>'}).join('');
+function show(){var r=R[ri];$('#rt').textContent=r.t;$('#ph').style.backgroundImage='url('+r.i+'),linear-gradient(135deg,#2E3A6E,#4F60A8)';$('#rq').textContent=r.q;$('#ra').textContent=r.a;$('#m2x').textContent=r.m[1];$('#m3').textContent=r.m[2];document.querySelectorAll('#dots i').forEach(function(d,i){d.classList.toggle('on',i==ri)})}
+function go(d){rs.style.opacity=0;setTimeout(function(){ri=(ri+d+R.length)%R.length;show();rs.style.opacity=1},300)}
+$('#nx').onclick=function(){go(1)};$('#pv').onclick=function(){go(-1)};show();
+/* faq */
+var F=[['Сколько сохнет диван после химчистки?','Обычно 3–4 часа естественным путём, а при заказе сушки мебельным феном — около 1 часа.'],['Безопасна ли химия для маленьких детей и животных?','Да. Мы используем сертифицированные биоразлагаемые составы Chemspec и Kiehl и полностью вымываем их водой.'],['Выезжаете ли вы в Яблоновский?','Да, работаем по всему Краснодару и Яблоновскому без наценки за выезд.'],['Что делать, если пятно не отойдет?','Заранее предупреждаем о застарелых пятнах и ожогах ткани. Оплата только за реальный результат после осмотра.']];
+$('#acc').innerHTML=F.map(function(f,i){return '<div class="fi'+(i==0?' on':'')+'"><button class="fb">'+f[0]+'<i>+</i></button><div class="fa"><div><p>'+f[1]+'</p></div></div></div>'}).join('');
+$('#acc').addEventListener('click',function(e){var b=e.target.closest('.fb');if(!b)return;var it=b.parentNode,o=it.classList.contains('on');document.querySelectorAll('.fi').forEach(function(x){x.classList.remove('on')});if(!o)it.classList.add('on')});
+/* cta */
+$('#nm').addEventListener('input',function(){$('#ctat').href=TG+'?text='+encodeURIComponent('Здравствуйте! Хочу узнать стоимость химчистки по фото. '+this.value)});
+})();
+</script>
+</body>
+</html>
