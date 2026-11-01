@@ -1,0 +1,5 @@
+.total-price { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.price-value { display: inline-flex; align-items: flex-start; line-height: 1.2; }
+.price-digit { display: inline-block; width: 1ch; height: 1.2em; overflow: hidden; }
+.price-digit-reel, .price-digit-reel > span { display: block; }
+.price-digit-reel > span { height: 1.2em; line-height: 1.2; }
