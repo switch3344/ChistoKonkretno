@@ -1,0 +1,11 @@
+.comparison-lens {
+  position: absolute; z-index: 4; width: 120px; height: 120px;
+  overflow: hidden; border: 2px solid #E8E9F1; border-radius: 50%;
+  background: #171921; box-shadow: 0 6px 28px #0006;
+  pointer-events: none; opacity: 0;
+}
+.comparison-lens[data-active='true'] { opacity: 1; }
+.comparison-lens-scene { position: absolute; left: 0; top: 0; transform-origin: top left; }
+.comparison-lens-scene > .comparison-image { position: absolute; inset: 0; }
+.comparison-lens-scene > .dirty { clip-path: inset(0 calc(100% - var(--rcs-current-position, 50%)) 0 0); }
+.comparison-frame:has(.comparison-slider:focus-visible) { outline: 2px solid #9AA3FF; outline-offset: 5px; }

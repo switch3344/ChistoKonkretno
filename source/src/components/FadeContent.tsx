@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef, type CSSProperties, type HTMLAttributes, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef, type CSSProperties, type ElementType, type HTMLAttributes, type ReactNode } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -9,7 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 export type FadeContentEffect = 'fade' | 'focus' | 'develop' | 'dissolve' | 'mist' | 'pixel';
 export type FadeContentStaggerFrom = 'start' | 'end' | 'center' | 'edges' | 'random';
 
-export interface FadeContentProps extends HTMLAttributes<HTMLDivElement> {
+export interface FadeContentProps extends HTMLAttributes<HTMLElement> {
+  as?: ElementType;
   children?: ReactNode;
   container?: Element | string | null;
   effect?: FadeContentEffect;
@@ -186,6 +187,7 @@ const getLooks = (effect: string, blur: number, initialOpacity: number): Look[] 
 };
 
 const FadeContent = ({
+  as: Tag = 'div',
   children,
   container,
   effect = 'fade',
@@ -211,7 +213,7 @@ const FadeContent = ({
   style,
   ...props
 }: FadeContentProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const callbacksRef = useRef({ onStart, onComplete, onDisappearanceComplete });
   callbacksRef.current = { onStart, onComplete, onDisappearanceComplete };
 
@@ -406,9 +408,9 @@ const FadeContent = ({
   ]);
 
   return (
-    <div ref={ref} className={className} style={{ visibility: 'hidden', ...style }} {...props}>
+    <Tag ref={ref} className={className} style={{ visibility: 'hidden', ...style }} {...props}>
       {children}
-    </div>
+    </Tag>
   );
 };
 

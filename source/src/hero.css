@@ -1,0 +1,12 @@
+/* Full-screen introduction, with space for the floating header. */
+.hero { min-height: 100svh; padding-block: 156px 80px; }
+.hero h1 { font-size: clamp(60px, 5vw, 72px); }
+.hero-body { max-width: 520px; font-size: 18px; }
+.hero-facts { font-size: 16px; }
+.hero-copy > .btn { font-size: 17px; }
+@media (max-width: 760px) {
+  .hero { min-height: 100svh; padding-block: 172px 56px; }
+  .hero h1 { font-size: clamp(42px, 10.8vw, 48px); }
+  .hero-body { font-size: 17px; }
+  .hero-copy > .btn { font-size: 16px; }
+}

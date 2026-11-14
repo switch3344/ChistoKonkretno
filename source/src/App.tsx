@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowDown, ArrowUpRight, Check, Plus, X, ZoomIn } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Check, Plus, Star } from 'lucide-react';
 import { ReactCompareSlider, ReactCompareSliderHandle, useReactCompareSliderContext } from 'react-compare-slider';
-import GlassZoom from 'react-glass-zoom';
 import { Accordion, AccordionContent, AccordionPanel, AccordionTitle } from 'flowbite-react';
 import CardNav from './components/CardNav';
 import GooeyNav from './components/GooeyNav';
@@ -10,6 +9,9 @@ import { useComparisonAutoplay } from './components/useComparisonAutoplay';
 import AnimatedPrice from './components/AnimatedPrice';
 import { copy, extras, image, PHONE, PHONE_LINK, services, TELEGRAM, type Language } from './content';
 import { concise } from './concise';
+import { useScrollReveal } from './useScrollReveal';
+import ComparisonLoupe from './components/ComparisonLoupe';
+import FadeContent from './components/FadeContent';
 
 const money = (n: number) => `${n.toLocaleString('ru-RU')} ₽`;
 const navSections = ['hero', 'calc', 'ba-s', 'faq'];
@@ -22,18 +24,17 @@ function AccentTitle({ text, word }: { text: string; word: string }) {
   return <>{text.split(word).map((part, i) => <span key={i}>{i > 0 && <em className="serif">{word}</em>}{part}</span>)}</>;
 }
 
-function ComparisonHandle({ label }: { label: string }) {
+function ComparisonHandle({ label, loupeLabel, loupeHint }: { label: string; loupeLabel: string; loupeHint: string }) {
   useComparisonAutoplay();
   const { handleRootRef } = useReactCompareSliderContext();
   useEffect(() => { handleRootRef.current?.setAttribute('aria-label', label); }, [handleRootRef, label]);
-  return <ReactCompareSliderHandle buttonStyle={{ width: 48, height: 48, backgroundColor: '#E8E9F1', backdropFilter: 'none' }} linesStyle={{ outlineColor: '#E8E9F1' }} style={{ '--rcs-handle-color': '#14161A' } as React.CSSProperties} />;
+  return <><ReactCompareSliderHandle buttonStyle={{ width: 48, height: 48, backgroundColor: '#E8E9F1', backdropFilter: 'none' }} linesStyle={{ outlineColor: '#E8E9F1' }} style={{ '--rcs-handle-color': '#14161A' } as React.CSSProperties} /><ComparisonLoupe src={image} label={loupeLabel} hint={loupeHint} /></>;
 }
 
-function Review({ review, index }: { review: typeof copy.ru.reviews[number]; index: number }) {
-  const [open, setOpen] = useState(false);
-  return <article className="review">
-    <button type="button" className="review-title" id={`review-title-${index}`} aria-expanded={open} aria-controls={`review-answer-${index}`} onClick={() => setOpen(!open)}><span>{review.author}<small>{review.place}</small></span><Plus size={18} aria-hidden="true" /></button>
-    <div className="review-answer smooth-panel" id={`review-answer-${index}`} role="region" aria-labelledby={`review-title-${index}`} aria-hidden={!open} data-open={open}><div className="smooth-panel-inner"><blockquote>{review.quote}</blockquote></div></div>
+function Review({ review, quote, language }: { review: typeof copy.ru.reviews[number]; quote: string; language: Language }) {
+  return <article className="review review-card">
+    <header className="review-card-heading"><div><h3>{review.author}</h3><p className="review-place">{review.place}</p></div><span className="review-rating" role="img" aria-label={language === 'ru' ? '5 из 5' : '5 out of 5'}>{Array.from({ length: 5 }, (_, i) => <Star key={i} size={14} fill="currentColor" aria-hidden="true" />)}</span></header>
+    <blockquote>{quote}</blockquote>
   </article>;
 }
 
@@ -83,29 +84,17 @@ function Calculator({ language }: { language: Language }) {
   </section>;
 }
 
-function FabricDetail({ language }: { language: Language }) {
-  const t = { ...copy[language], ...concise[language] };
-  const dialog = useRef<HTMLDialogElement>(null);
-  return <details className="fabric-details">
-    <summary>{t.detailsTitle}<ZoomIn size={18} aria-hidden="true" /></summary>
-    <figure className="fabric-figure">
-      <div className="fabric-frame" role="img" aria-label={t.loupeAlt} onClick={() => dialog.current?.showModal()}><div className="magnifier" aria-hidden="true"><GlassZoom magnifierHeight={160} magnifieWidth={160} zoomLevel={2.5}><img src="images/fabric.jpg" alt="" /></GlassZoom></div></div>
-      <figcaption className="small-note">{t.loupeNote} <button className="text-button" type="button" onClick={() => dialog.current?.showModal()}>{t.loupeOpen}<ArrowUpRight size={16} aria-hidden="true" /></button></figcaption>
-    </figure>
-    <dialog ref={dialog} className="fabric-dialog" aria-label={t.loupeAlt} onClick={e => { if (e.target === e.currentTarget) dialog.current?.close(); }}><button type="button" className="round-button dialog-close" aria-label={t.loupeClose} onClick={() => dialog.current?.close()} autoFocus><X size={22} /></button><img src="images/fabric.jpg" width="1800" height="1400" alt={t.loupeAlt} /></dialog>
-  </details>;
-}
-
 export default function App() {
+  useScrollReveal();
   const [language, setLanguage] = useState<Language>('ru');
   const [activeNav, setActiveNav] = useState(0);
-  const [faqOpen, setFaqOpen] = useState<number | null>(null);
+  const [faqOpen, setFaqOpen] = useState<number | null>(0);
   const navLock = useRef(0);
   const t = { ...copy[language], ...concise[language] };
   const gooeyItems = useMemo(() => concise[language].navLabels.map((label, i) => ({ label, href: `#${navSections[i]}` })), [language]);
   const cardItems = useMemo(() => [
     { label: concise[language].navGroups[0], links: [{ label: concise[language].calcTitle, href: '#calc' }, { label: concise[language].stepsTitle, href: '#steps' }] },
-    { label: concise[language].navGroups[1], links: [{ label: concise[language].comparisonTitle, href: '#ba-s' }, { label: concise[language].reviewsTitle, href: '#rev' }, { label: concise[language].faqTitle, href: '#faq' }] },
+    { label: concise[language].navGroups[1], links: [{ label: concise[language].comparisonTitle, href: '#ba-s' }, { label: language === 'ru' ? 'Отзывы' : 'Reviews', href: '#rev' }, { label: language === 'ru' ? 'Вопросы' : 'Questions', href: '#faq' }] },
     { label: concise[language].navGroups[2], links: [{ label: 'Telegram', href: TELEGRAM }, { label: PHONE, href: PHONE_LINK }, { label: language === 'ru' ? 'English' : 'Русский' }] },
   ], [language]);
   useEffect(() => {
@@ -145,28 +134,28 @@ export default function App() {
         </div></div>
       </section>
 
+      <section id="steps" className="section process-section" aria-labelledby="steps-heading"><div className="wrap">
+        <FadeContent as="h2" id="steps-heading" effect="mist" duration={1.8} threshold={.1}><AccentTitle text={t.stepsTitle} word={language === 'ru' ? 'работает' : 'works'} /></FadeContent>
+        <FadeContent as="ol" className="steps-list process-cards" effect="mist" duration={1.8} stagger={.1} threshold={.1}>{t.steps.map(([, body], i) => <li key={i}><span>0{i + 1}</span><div><h3>{t.stepLabels[i]}</h3><p>{body}</p></div></li>)}</FadeContent>
+        <FadeContent as="p" className="process-equipment" effect="mist" duration={1.8} threshold={.1}><span className="equipment-dot" aria-hidden="true" />{t.equipment}</FadeContent>
+      </div></section>
+
       <Calculator language={language} />
 
       <section id="ba-s" className="section comparison-section" aria-labelledby="comparison-heading"><div className="wrap">
         <h2 id="comparison-heading"><AccentTitle text={t.comparisonTitle} word={language === 'ru' ? 'после' : 'after'} /></h2>
         <div className="comparison-frame" role="group" aria-label={t.sliderLabel}>
-          <ReactCompareSlider className="comparison-slider" defaultPosition={50} keyboardIncrement="5%" onlyHandleDraggable handle={<ComparisonHandle label={t.sliderLabel} />} itemOne={<div className="comparison-image dirty"><img src={image} alt={t.before} draggable={false} /></div>} itemTwo={<div className="comparison-image"><img src={image} alt={t.after} draggable={false} /></div>} />
+          <ReactCompareSlider className="comparison-slider" defaultPosition={50} keyboardIncrement="5%" onlyHandleDraggable handle={<ComparisonHandle label={t.sliderLabel} loupeLabel={t.loupeOpen} loupeHint={t.loupeHint} />} itemOne={<div className="comparison-image dirty"><img src={image} alt={t.before} draggable={false} /></div>} itemTwo={<div className="comparison-image"><img src={image} alt={t.after} draggable={false} /></div>} />
           <span className="comparison-tag tag-before">{t.before}</span><span className="comparison-tag tag-after">{t.after}</span>
         </div><p className="small-note comparison-note">{t.photoNote}</p>
-        <FabricDetail language={language} />
-      </div></section>
-
-      <section id="steps" className="section process-section" aria-labelledby="steps-heading"><div className="wrap">
-        <h2 id="steps-heading"><AccentTitle text={t.stepsTitle} word={language === 'ru' ? 'работает' : 'works'} /></h2><ol className="steps-list process-cards">{t.steps.map(([, body], i) => <li key={i}><span>0{i + 1}</span><div><h3>{t.stepLabels[i]}</h3><p>{body}</p></div></li>)}</ol>
-        <p className="small-note process-equipment">{t.equipment}</p>
       </div></section>
 
       <div className="section information-section"><div className="wrap information-grid">
-        <section id="rev" aria-labelledby="review-heading"><h2 id="review-heading">{t.reviewsTitle}</h2><div className="reviews">{t.reviews.map((review, i) => <Review review={review} index={i} key={i} />)}</div></section>
-        <section id="faq" aria-labelledby="faq-heading"><h2 id="faq-heading">{t.faqTitle}</h2><Accordion flush collapseAll className="faq-accordion" arrowIcon={Plus}>{t.faq.map(([question, answer], i) => <AccordionPanel key={i}><AccordionTitle as="h3" id={`faq-question-${i}`} className="faq-title" aria-expanded={faqOpen === i} aria-controls={`faq-answer-${i}`} onClickCapture={() => setFaqOpen(faqOpen === i ? null : i)}>{question}</AccordionTitle><AccordionContent hidden={false} className="faq-answer smooth-panel" data-open={faqOpen === i} aria-hidden={faqOpen !== i} id={`faq-answer-${i}`} role="region" aria-labelledby={`faq-question-${i}`}><div className="smooth-panel-inner"><div className="faq-answer-body"><p>{answer}</p></div></div></AccordionContent></AccordionPanel>)}</Accordion></section>
+        <section id="rev" aria-labelledby="review-heading"><FadeContent as="h2" id="review-heading" effect="mist" duration={1.8} threshold={.1}><AccentTitle text={t.reviewsTitle} word={language === 'ru' ? 'клиенты' : 'customers'} /></FadeContent><FadeContent className="reviews" effect="mist" duration={1.8} stagger={.1} threshold={.1}>{t.reviews.map((review, i) => <Review review={review} quote={t.reviewQuotes[i]} language={language} key={i} />)}</FadeContent></section>
+        <section id="faq" aria-labelledby="faq-heading"><FadeContent as="h2" id="faq-heading" effect="mist" duration={1.8} threshold={.1}><AccentTitle text={t.faqTitle} word={language === 'ru' ? 'вопросы' : 'questions'} /></FadeContent><FadeContent className="faq-reveal" effect="mist" duration={1.8} threshold={.1}><Accordion flush className="faq-accordion" arrowIcon={Plus}>{t.faq.map(([question, answer], i) => <AccordionPanel key={i}><div className="faq-item"><AccordionTitle as="h3" id={`faq-question-${i}`} className="faq-title" aria-expanded={faqOpen === i} aria-controls={`faq-answer-${i}`} onClickCapture={() => setFaqOpen(faqOpen === i ? null : i)}>{question}</AccordionTitle><AccordionContent hidden={false} className="faq-answer smooth-panel" data-open={faqOpen === i} aria-hidden={faqOpen !== i} id={`faq-answer-${i}`} role="region" aria-labelledby={`faq-question-${i}`}><div className="smooth-panel-inner"><div className="faq-answer-body"><p>{answer}</p></div></div></AccordionContent></div></AccordionPanel>)}</Accordion></FadeContent></section>
       </div></div>
 
-      <section id="contact" className="section contact-section" aria-labelledby="cta-heading"><div className="wrap contact-inner"><h2 id="cta-heading"><AccentTitle text={t.ctaTitle} word={language === 'ru' ? 'чистка' : 'cleaning'} /></h2><a className="btn" href={TELEGRAM} target="_blank" rel="noopener noreferrer">{t.ctaAction}<ArrowUpRight size={20} aria-hidden="true" /></a></div></section>
+      <section id="contact" className="section contact-section" aria-labelledby="cta-heading"><div className="wrap"><div className="contact-inner"><h2 id="cta-heading"><AccentTitle text={t.ctaTitle} word={language === 'ru' ? 'чистка' : 'cleaning'} /></h2><a className="btn" href={TELEGRAM} target="_blank" rel="noopener noreferrer">{t.ctaAction}<ArrowUpRight size={20} aria-hidden="true" /></a></div></div></section>
     </main>
     <footer className="site-footer"><div className="wrap footer-top"><a href="#hero" className="logo" aria-label={t.backToTop}><Wordmark /></a><p>{t.footerBody}</p><a href={PHONE_LINK}>{PHONE}</a><a href={TELEGRAM} target="_blank" rel="noopener noreferrer">Telegram<ArrowUpRight size={16} aria-hidden="true" /></a></div><div className="wrap footer-bottom"><address>{t.address} {t.street}</address><button className="language-switch" type="button" lang={language === 'ru' ? 'en' : 'ru'} onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}>{language === 'ru' ? 'English' : 'Русский'}</button></div></footer>
   </>;

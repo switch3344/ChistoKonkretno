@@ -1,4 +1,5 @@
 node_modules/
+repository/
 dist/
 .env*
 !.env.example
