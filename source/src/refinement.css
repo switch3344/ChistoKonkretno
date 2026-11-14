@@ -4,10 +4,9 @@
   --section-a: #171921;
   --section-b: #22252F;
   --card-bg: #2A2D39;
-  --card-radius: 16px;
+  --card-radius: 20px;
   --body-text: #C8C8D0;
   --muted: #A8ADBD;
-  --motion-ease: cubic-bezier(.22,1,.36,1);
   --step-accent: #A8AFE3;
   --line: rgba(255,255,255,.08);
   --section-divider: var(--line);
@@ -21,7 +20,7 @@ html { scroll-padding-top: 0; }
 main, main > [id], .information-grid > section { scroll-margin-top: var(--header-offset); }
 .comparison-section, .price-section, .contact-section { background: var(--section-a); }
 .process-section, .information-section { background: var(--section-b); }
-main > .section { padding-block: 128px; border-top: 1px solid var(--section-divider); }
+main > .section { padding-block: clamp(96px, 12vw, 160px); border-top: 1px solid var(--section-divider); }
 main > .section::before { content: none; }
 .hero { border-bottom: 1px solid var(--section-divider); }
 .hero h1 { color: var(--text); }
@@ -32,10 +31,10 @@ main > .hero + .section { border-top: 0; }
 .section h2, .information-grid h2 {
   margin: 0 0 clamp(40px, 4vw, 56px);
   color: var(--text);
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(32px, 4vw, 52px);
   font-weight: 500;
   line-height: 1.15;
-  letter-spacing: -.02em;
+  letter-spacing: -.035em;
 }
 .hero-body, .process-cards p, .review blockquote, .faq-answer {
   color: var(--body-text);
@@ -65,7 +64,7 @@ main > .hero + .section { border-top: 0; }
   background: var(--card-bg);
   border: 1px solid var(--line);
   border-radius: var(--card-radius);
-  box-shadow: none;
+  box-shadow: 0 8px 28px rgba(0,0,0,.06);
 }
 .calculator-total { top: var(--header-offset); padding: 36px; }
 .process-cards { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 20px; align-items: stretch; }
@@ -80,28 +79,15 @@ main > .hero + .section { border-top: 0; }
 .faq-answer, .smooth-panel, .faq-answer-body { background: transparent !important; }
 .contact-inner { width: 100%; margin: 0; padding: 48px; gap: 40px; }
 .contact-inner h2 { max-width: 580px; margin: 0; }
-.btn { min-height: 56px; padding-block: 16px; border-radius: 10px; transition: background-color 160ms var(--motion-ease); }
-.btn svg, .hero-secondary svg, .footer-top svg, .extras summary svg { width: 18px; height: 18px; stroke-width: 1.5; }
-.card-nav__cta { border-radius: 10px; }
-.hero h1 > span { color: var(--muted); }
-.service-option { gap: 16px; transition: background-color 160ms var(--motion-ease), color 160ms var(--motion-ease); }
-.service-option:hover, .service-option.selected { background: #FFFFFF05; }
-.option-price, .area-field input { font-variant-numeric: tabular-nums; }
-.option-check { width: 20px; height: 20px; border-radius: 4px; }
-.option-check svg { width: 16px; height: 16px; }
-.faq-title h3 { letter-spacing: 0; }
-.comparison-tag { border-radius: 8px; padding: 8px 16px; color: var(--text); }
-.comparison-note { margin-top: 16px; }
-.extra-option { min-height: 48px; }
 .site-footer { border-top: 1px solid var(--section-divider); }
 .footer-top { border: 0; padding-top: 40px; }
 
 /* Only opacity and transform change: content keeps its natural layout space. */
 .reveal-item {
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity .5s var(--motion-ease), transform .5s var(--motion-ease);
-  transition-delay: calc(var(--i, 0) * 50ms);
+  transform: translateY(20px);
+  transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
+  transition-delay: calc(var(--i, 0) * 80ms);
 }
 .reveal-item.is-visible { opacity: 1; transform: none; }
 .reveal-item:focus-within { opacity: 1; transform: none; transition: none; }
@@ -115,8 +101,8 @@ main > .hero + .section { border-top: 0; }
 
 @media (max-width: 760px) {
   :root { --header-offset: 156px; }
-  main > .section { padding-block: 80px; }
-  .section h2, .information-grid h2 { margin-bottom: 48px; }
+  main > .section { padding-block: clamp(72px, 12vw, 88px); }
+  .section h2, .information-grid h2 { margin-bottom: 40px; }
   .information-grid { grid-template-columns: minmax(0,1fr); gap: 24px; }
   .information-grid > section { padding: 28px; }
   .calculator { grid-template-columns: minmax(0,1fr); gap: 32px; }

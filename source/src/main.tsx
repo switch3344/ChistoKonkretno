@@ -6,5 +6,6 @@ import './spacing.css';
 import './refinement.css';
 import './sections.css';
 import './hero.css';
+import './responsive.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);

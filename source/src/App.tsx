@@ -24,6 +24,12 @@ function AccentTitle({ text, word }: { text: string; word: string }) {
   return <>{text.split(word).map((part, i) => <span key={i}>{i > 0 && <em className="serif">{word}</em>}{part}</span>)}</>;
 }
 
+function ServiceName({ name }: { name: string }) {
+  return <>{name.split(/(\S*-\S*)/).map((part, i) => i % 2
+    ? <span className="unbroken-word" key={i}>{part}</span>
+    : part)}</>;
+}
+
 function ComparisonHandle({ label, loupeLabel, loupeHint }: { label: string; loupeLabel: string; loupeHint: string }) {
   useComparisonAutoplay();
   const { handleRootRef } = useReactCompareSliderContext();
@@ -33,7 +39,7 @@ function ComparisonHandle({ label, loupeLabel, loupeHint }: { label: string; lou
 
 function Review({ review, quote, language }: { review: typeof copy.ru.reviews[number]; quote: string; language: Language }) {
   return <article className="review review-card">
-    <header className="review-card-heading"><div><h3>{review.author}</h3><p className="review-place">{review.place}</p></div><span className="review-rating" role="img" aria-label={language === 'ru' ? '5 из 5' : '5 out of 5'}>{Array.from({ length: 5 }, (_, i) => <Star key={i} size={18} strokeWidth={1.5} fill="currentColor" aria-hidden="true" />)}</span></header>
+    <header className="review-card-heading"><div><h3>{review.author}</h3><p className="review-place">{review.place}</p></div><span className="review-rating" role="img" aria-label={language === 'ru' ? '5 из 5' : '5 out of 5'}>{Array.from({ length: 5 }, (_, i) => <Star key={i} size={14} fill="currentColor" aria-hidden="true" />)}</span></header>
     <blockquote>{quote}</blockquote>
   </article>;
 }
@@ -64,18 +70,18 @@ function Calculator({ language }: { language: Language }) {
         <div className="calculator-options">
           <fieldset><legend className="sr-only">{t.what}</legend>
             <div className="service-options">{services.map((service, i) => <button key={service.name[0]} type="button" className={`service-option ${selected.includes(i) ? 'selected' : ''}`} aria-pressed={selected.includes(i)} onClick={() => setSelected(toggle(selected, i))}>
-              <span className="option-check" aria-hidden="true">{selected.includes(i) && <Check size={18} strokeWidth={1.5} />}</span><span>{service.name[index]}</span><span className="option-price">{money(service.price)}</span>
+              <span className="option-check" aria-hidden="true">{selected.includes(i) && <Check size={15} />}</span><span><ServiceName name={service.name[index]} /></span><span className="option-price">{money(service.price)}</span>
             </button>)}</div>
             {selected.includes(5) && <div className="area-field"><label htmlFor="area">{t.area}</label><input id="area" type="number" min="1" max="200" step="1" value={area} onChange={e => setArea(e.target.value)} onBlur={() => setArea(String(metres))} /></div>}
           </fieldset>
-          <details className="extras"><summary>{t.additional}<Plus size={18} strokeWidth={1.5} aria-hidden="true" /></summary>
+          <details className="extras"><summary>{t.additional}<Plus size={18} aria-hidden="true" /></summary>
             {extras.map((extra, i) => <label className="extra-option" key={extra.name[0]}><input type="checkbox" checked={additional.includes(i)} onChange={() => setAdditional(toggle(additional, i))} /><span>{extra.name[index]}</span><span className="option-price">+{money(extra.price)}</span></label>)}
           </details>
         </div>
         <aside className="calculator-total" aria-label={t.estimate}>
           <span className="small-label">{t.estimate}</span><AnimatedPrice value={total} />
           <p className="total-selection">{names.length ? names.join(' · ') : t.empty}</p>
-          <a className="btn" href={`${TELEGRAM}?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener noreferrer" onClick={() => navigator.clipboard?.writeText(message).then(() => setToast(true)).catch(() => {})}>{t.order}<ArrowUpRight size={18} strokeWidth={1.5} aria-hidden="true" /></a>
+          <a className="btn" href={`${TELEGRAM}?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener noreferrer" onClick={() => navigator.clipboard?.writeText(message).then(() => setToast(true)).catch(() => {})}>{t.order}<ArrowUpRight size={19} aria-hidden="true" /></a>
           <p className="small-note">{t.totalNote}</p>
         </aside>
       </div>
@@ -128,8 +134,8 @@ export default function App() {
         <div className="wrap hero-grid"><div className="hero-copy">
           <h1 id="hero-heading">{t.heroTitle}<br /><span className="serif">{t.heroSecond}</span></h1>
           <p className="hero-body">{t.heroBody}</p>
-          <a href={TELEGRAM} target="_blank" rel="noopener noreferrer" className="btn">{t.photoAction}<ArrowUpRight size={18} strokeWidth={1.5} aria-hidden="true" /></a>
-          <a href="#calc" className="hero-secondary">{t.costAction}<ArrowDown size={18} strokeWidth={1.5} aria-hidden="true" /></a>
+          <a href={TELEGRAM} target="_blank" rel="noopener noreferrer" className="btn">{t.photoAction}<ArrowUpRight size={20} aria-hidden="true" /></a>
+          <a href="#calc" className="hero-secondary">{t.costAction}<ArrowDown size={17} aria-hidden="true" /></a>
           <ul className="hero-facts">{t.facts.map(fact => <li key={fact}>{fact}</li>)}</ul>
         </div></div>
       </section>
@@ -143,18 +149,18 @@ export default function App() {
       </div></section>
 
       <section id="steps" className="section process-section" aria-labelledby="steps-heading"><div className="wrap">
-        <FadeContent as="h2" id="steps-heading" effect="fade" duration={.5} threshold={.1}><AccentTitle text={t.stepsTitle} word={language === 'ru' ? 'работает' : 'works'} /></FadeContent>
-        <FadeContent as="ol" className="steps-list process-cards" effect="fade" duration={.5} stagger={.05} threshold={.1}>{t.steps.map(([, body], i) => <li key={i}><div><h3>{t.stepLabels[i]}</h3><p>{body}</p></div></li>)}</FadeContent>
+        <FadeContent as="h2" id="steps-heading" effect="mist" duration={1.8} threshold={.1}><AccentTitle text={t.stepsTitle} word={language === 'ru' ? 'работает' : 'works'} /></FadeContent>
+        <FadeContent as="ol" className="steps-list process-cards" effect="mist" duration={1.8} stagger={.1} threshold={.1}>{t.steps.map(([, body], i) => <li key={i}><div><h3>{t.stepLabels[i]}</h3><p>{body}</p></div></li>)}</FadeContent>
       </div></section>
 
       <Calculator language={language} />
 
       <div className="section information-section"><div className="wrap information-grid">
-        <section id="rev" aria-labelledby="review-heading"><FadeContent as="h2" id="review-heading" effect="fade" duration={.5} threshold={.1}><AccentTitle text={t.reviewsTitle} word={language === 'ru' ? 'клиенты' : 'customers'} /></FadeContent><FadeContent className="reviews" effect="fade" duration={.5} stagger={.05} threshold={.1}>{t.reviews.map((review, i) => <Review review={review} quote={t.reviewQuotes[i]} language={language} key={i} />)}</FadeContent></section>
-        <section id="faq" aria-labelledby="faq-heading"><FadeContent as="h2" id="faq-heading" effect="fade" duration={.5} threshold={.1}><AccentTitle text={t.faqTitle} word={language === 'ru' ? 'вопросы' : 'questions'} /></FadeContent><FadeContent className="faq-reveal" effect="fade" duration={.5} threshold={.1}><Accordion flush className="faq-accordion" arrowIcon={Plus}>{t.faq.map(([question, answer], i) => <AccordionPanel key={i}><div className="faq-item"><AccordionTitle as="h3" id={`faq-question-${i}`} className="faq-title" aria-expanded={faqOpen === i} aria-controls={`faq-answer-${i}`} onClickCapture={() => setFaqOpen(faqOpen === i ? null : i)}>{question}</AccordionTitle><AccordionContent hidden={false} className="faq-answer smooth-panel" data-open={faqOpen === i} aria-hidden={faqOpen !== i} id={`faq-answer-${i}`} role="region" aria-labelledby={`faq-question-${i}`}><div className="smooth-panel-inner"><div className="faq-answer-body"><p>{answer}</p></div></div></AccordionContent></div></AccordionPanel>)}</Accordion></FadeContent></section>
+        <section id="rev" aria-labelledby="review-heading"><FadeContent as="h2" id="review-heading" effect="mist" duration={1.8} threshold={.1}><AccentTitle text={t.reviewsTitle} word={language === 'ru' ? 'клиенты' : 'customers'} /></FadeContent><FadeContent className="reviews" effect="mist" duration={1.8} stagger={.1} threshold={.1}>{t.reviews.map((review, i) => <Review review={review} quote={t.reviewQuotes[i]} language={language} key={i} />)}</FadeContent></section>
+        <section id="faq" aria-labelledby="faq-heading"><FadeContent as="h2" id="faq-heading" effect="mist" duration={1.8} threshold={.1}><AccentTitle text={t.faqTitle} word={language === 'ru' ? 'вопросы' : 'questions'} /></FadeContent><FadeContent className="faq-reveal" effect="mist" duration={1.8} threshold={.1}><Accordion flush className="faq-accordion" arrowIcon={Plus}>{t.faq.map(([question, answer], i) => <AccordionPanel key={i}><div className="faq-item"><AccordionTitle as="h3" id={`faq-question-${i}`} className="faq-title" aria-expanded={faqOpen === i} aria-controls={`faq-answer-${i}`} onClickCapture={() => setFaqOpen(faqOpen === i ? null : i)}>{question}</AccordionTitle><AccordionContent hidden={false} className="faq-answer smooth-panel" data-open={faqOpen === i} aria-hidden={faqOpen !== i} id={`faq-answer-${i}`} role="region" aria-labelledby={`faq-question-${i}`}><div className="smooth-panel-inner"><div className="faq-answer-body"><p>{answer}</p></div></div></AccordionContent></div></AccordionPanel>)}</Accordion></FadeContent></section>
       </div></div>
 
-      <section id="contact" className="section contact-section" aria-labelledby="cta-heading"><div className="wrap"><div className="contact-inner"><h2 id="cta-heading"><AccentTitle text={t.ctaTitle} word={language === 'ru' ? 'чистка' : 'cleaning'} /></h2><a className="btn" href={TELEGRAM} target="_blank" rel="noopener noreferrer">{t.ctaAction}<ArrowUpRight size={18} strokeWidth={1.5} aria-hidden="true" /></a></div></div></section>
+      <section id="contact" className="section contact-section" aria-labelledby="cta-heading"><div className="wrap"><div className="contact-inner"><h2 id="cta-heading"><AccentTitle text={t.ctaTitle} word={language === 'ru' ? 'чистка' : 'cleaning'} /></h2><a className="btn" href={TELEGRAM} target="_blank" rel="noopener noreferrer">{t.ctaAction}<ArrowUpRight size={20} aria-hidden="true" /></a></div></div></section>
     </main>
     <footer className="site-footer"><div className="wrap footer-top"><a href="#hero" className="logo" aria-label={t.backToTop}><Wordmark /></a><p>{t.footerBody}</p><a href={PHONE_LINK}>{PHONE}</a><a href={TELEGRAM} target="_blank" rel="noopener noreferrer">Telegram<ArrowUpRight size={16} aria-hidden="true" /></a></div><div className="wrap footer-bottom"><address>{t.address} {t.street}</address><button className="language-switch" type="button" lang={language === 'ru' ? 'en' : 'ru'} onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}>{language === 'ru' ? 'English' : 'Русский'}</button></div></footer>
   </>;

@@ -1,0 +1,57 @@
+/* Keep the original design; give text room without splitting words. */
+body { min-width: 0; }
+.unbroken-word { white-space: nowrap; }
+h1, h2, h3 {
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+.section h2 .serif, .hero h1 .serif { white-space: nowrap; }
+.hero-grid { grid-template-columns: minmax(0, 1fr); }
+.hero-copy { max-width: 760px; }
+.hero-body { text-wrap: pretty; }
+.hero-facts li, .hero-secondary { white-space: nowrap; }
+.btn { max-width: 100%; }
+.service-option, .extra-option { gap: 16px; }
+.service-option > span:nth-child(2), .extra-option > span:not(.option-price) {
+  flex: 1; min-width: 0; white-space: normal; word-break: normal;
+}
+.option-price { flex: none; font-variant-numeric: tabular-nums; }
+.calculator-total { min-width: 0; gap: 28px; }
+.calculator-total .btn { gap: 12px; }
+.total-selection, .faq-title h3, .review-card-heading > div { min-width: 0; overflow-wrap: normal; }
+.faq-title { align-items: flex-start; }
+.faq-title svg { margin-top: 4px; flex: none; }
+.process-cards { row-gap: 48px; }
+.process-cards p { margin-top: 16px; }
+.reviews { gap: 20px; }
+.review-card-heading { row-gap: 16px; }
+.contact-inner { flex-wrap: wrap; gap: 32px; }
+.contact-inner h2 { flex: 1 1 480px; min-width: 0; }
+.contact-inner .btn { flex: 0 1 auto; }
+.footer-top { flex-wrap: wrap; gap: 24px 32px; }
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .process-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  main > .information-section { padding-block: 128px; }
+  .information-grid { grid-template-columns: minmax(0, 1fr); gap: 64px; }
+  .information-grid > section { padding-block: 0; }
+  .information-grid > section + section { padding-top: 64px; border-top: 1px solid #FFFFFF1A; }
+}
+@media (max-width: 760px) {
+  .hero-copy { width: 100%; }
+  .service-option { padding-block: 24px; }
+  .calculator-total { padding: 28px; gap: 24px; }
+  .process-section h2, .information-grid h2 { margin-bottom: 48px; }
+  .contact-inner { padding: 32px; }
+  .contact-inner h2 { flex-basis: 100%; }
+  .contact-inner .btn { flex-basis: 100%; }
+}
+@media (max-width: 380px) {
+  .hero-copy { grid-template-columns: minmax(0, 1fr); }
+  .hero-copy > .btn { justify-self: start; }
+  .hero-secondary { grid-column: 1; grid-row: 4; margin-top: 24px; }
+  .hero-facts { grid-row: 5; }
+  .card-nav__bar { column-gap: 8px; }
+  .gooey-nav { --gn-font: 15px; }
+}
