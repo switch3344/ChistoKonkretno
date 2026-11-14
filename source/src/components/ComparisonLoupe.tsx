@@ -9,7 +9,7 @@ export default function ComparisonLoupe({ src, label, hint }: { src: string; lab
   const [pinned, setPinned] = useState(false);
   const lensRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
-  const point = useRef({ x: .7, y: .55 });
+  const point = useRef({ x: .55, y: .72 });
   useLayoutEffect(() => setRoot(rootRef.current), [rootRef]);
 
   const show = (x: number, y: number) => {

@@ -16,22 +16,11 @@ main > .process-section { padding-block: 96px; border-color: #FFFFFF1A; }
   display: flex; flex-direction: column; gap: 0; padding: 0;
   background: none; border: 0; border-radius: 0; box-shadow: none;
 }
-.process-cards li > span {
-  display: block; width: 100%; padding-bottom: 16px;
-  border-bottom: 1px solid #FFFFFF1A; color: #9AA3FF;
-  font-size: 14px; font-weight: 500; line-height: 1.5;
-  letter-spacing: .16em; transition: border-color 200ms ease;
-}
-.process-cards li > div { width: 100%; padding-top: 24px; }
+.process-cards li > div { width: 100%; padding-top: 24px; border-top: 1px solid #FFFFFF1A; transition: border-color 200ms ease; }
 .process-cards h3 { margin: 0; color: #F1F1F3; font-size: 19px; font-weight: 500; line-height: 1.45; transition: color 200ms ease; }
 .process-cards p { max-width: 28ch; margin-top: 12px; }
-.process-cards li:hover > span { border-color: #9AA3FF; }
+.process-cards li:hover > div { border-color: #9AA3FF; }
 .process-cards li:hover h3 { color: #FFF; }
-.process-section .process-equipment {
-  display: flex; align-items: baseline; gap: 12px; margin-top: 56px; padding-top: 24px;
-  border-top: 1px solid #FFFFFF1A; color: #FFFFFF80; font-size: 14px; line-height: 1.65;
-}
-.equipment-dot { flex: none; width: 6px; height: 6px; border-radius: 50%; background: #9AA3FF; }
 
 main > .information-section { padding-block: 0; border-color: #FFFFFF1A; }
 .information-grid { grid-template-columns: minmax(0,1fr); gap: 0; }
@@ -66,7 +55,6 @@ main > .information-section { padding-block: 0; border-color: #FFFFFF1A; }
   .process-section h2, .information-grid h2 { margin-bottom: 64px; font-size: 48px; }
   .process-cards { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .process-section p, .information-grid blockquote { font-size: 17px; }
-  .process-section .process-equipment { font-size: 14px; }
   .information-grid .faq-title { font-size: 18px; }
 }
 @media (min-width: 1024px) {
@@ -77,5 +65,5 @@ main > .information-section { padding-block: 0; border-color: #FFFFFF1A; }
   .information-grid > section + section { border-top: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .process-cards li > span, .process-cards h3, .faq-title svg { transition: none; }
+  .process-cards li > div, .process-cards h3, .faq-title svg { transition: none; }
 }

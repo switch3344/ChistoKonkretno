@@ -18,13 +18,15 @@ button, input { font-family: inherit; }
 .card-nav:not([data-open]) .card-nav__panel { overflow: clip; }
 html { scroll-padding-top: 0; }
 main, main > [id], .information-grid > section { scroll-margin-top: var(--header-offset); }
-.process-section, .comparison-section, .contact-section { background: var(--section-a); }
-.price-section, .information-section { background: var(--section-b); }
+.comparison-section, .price-section, .contact-section { background: var(--section-a); }
+.process-section, .information-section { background: var(--section-b); }
 main > .section { padding-block: clamp(96px, 12vw, 160px); border-top: 1px solid var(--section-divider); }
 main > .section::before { content: none; }
 .hero { border-bottom: 1px solid var(--section-divider); }
 .hero h1 { color: var(--text); }
 main > .hero + .section { border-top: 0; }
+.comparison-slider { height: clamp(300px, 42vw, 540px); overflow: clip !important; }
+.comparison-image img { object-position: center bottom; }
 
 .section h2, .information-grid h2 {
   margin: 0 0 clamp(40px, 4vw, 56px);

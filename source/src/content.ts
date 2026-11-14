@@ -2,7 +2,7 @@ export type Language = 'ru' | 'en';
 export const TELEGRAM = 'https://t.me/chisto_konkretno';
 export const PHONE = '+7 (918) 653-84-94';
 export const PHONE_LINK = 'tel:+79186538494';
-export const image = 'images/sofa.jpg';
+export const image = 'images/sofa-living-room.jpg';
 
 export const services = [
   { name: ['Прямой диван', 'Straight sofa'], price: 2000 },

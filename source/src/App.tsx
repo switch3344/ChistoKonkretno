@@ -134,14 +134,6 @@ export default function App() {
         </div></div>
       </section>
 
-      <section id="steps" className="section process-section" aria-labelledby="steps-heading"><div className="wrap">
-        <FadeContent as="h2" id="steps-heading" effect="mist" duration={1.8} threshold={.1}><AccentTitle text={t.stepsTitle} word={language === 'ru' ? 'работает' : 'works'} /></FadeContent>
-        <FadeContent as="ol" className="steps-list process-cards" effect="mist" duration={1.8} stagger={.1} threshold={.1}>{t.steps.map(([, body], i) => <li key={i}><span>0{i + 1}</span><div><h3>{t.stepLabels[i]}</h3><p>{body}</p></div></li>)}</FadeContent>
-        <FadeContent as="p" className="process-equipment" effect="mist" duration={1.8} threshold={.1}><span className="equipment-dot" aria-hidden="true" />{t.equipment}</FadeContent>
-      </div></section>
-
-      <Calculator language={language} />
-
       <section id="ba-s" className="section comparison-section" aria-labelledby="comparison-heading"><div className="wrap">
         <h2 id="comparison-heading"><AccentTitle text={t.comparisonTitle} word={language === 'ru' ? 'после' : 'after'} /></h2>
         <div className="comparison-frame" role="group" aria-label={t.sliderLabel}>
@@ -149,6 +141,13 @@ export default function App() {
           <span className="comparison-tag tag-before">{t.before}</span><span className="comparison-tag tag-after">{t.after}</span>
         </div><p className="small-note comparison-note">{t.photoNote}</p>
       </div></section>
+
+      <section id="steps" className="section process-section" aria-labelledby="steps-heading"><div className="wrap">
+        <FadeContent as="h2" id="steps-heading" effect="mist" duration={1.8} threshold={.1}><AccentTitle text={t.stepsTitle} word={language === 'ru' ? 'работает' : 'works'} /></FadeContent>
+        <FadeContent as="ol" className="steps-list process-cards" effect="mist" duration={1.8} stagger={.1} threshold={.1}>{t.steps.map(([, body], i) => <li key={i}><div><h3>{t.stepLabels[i]}</h3><p>{body}</p></div></li>)}</FadeContent>
+      </div></section>
+
+      <Calculator language={language} />
 
       <div className="section information-section"><div className="wrap information-grid">
         <section id="rev" aria-labelledby="review-heading"><FadeContent as="h2" id="review-heading" effect="mist" duration={1.8} threshold={.1}><AccentTitle text={t.reviewsTitle} word={language === 'ru' ? 'клиенты' : 'customers'} /></FadeContent><FadeContent className="reviews" effect="mist" duration={1.8} stagger={.1} threshold={.1}>{t.reviews.map((review, i) => <Review review={review} quote={t.reviewQuotes[i]} language={language} key={i} />)}</FadeContent></section>
