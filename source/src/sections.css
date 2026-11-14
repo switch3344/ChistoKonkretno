@@ -1,48 +1,48 @@
 /* Only process, reviews and FAQ; the other sections retain their presentation. */
 .process-section, .information-section { font-family: Inter, system-ui, sans-serif; }
 .process-section > .wrap, .information-section > .information-grid {
-  width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 24px;
+  width: min(1120px, calc(100% - 80px)); max-width: none; margin-inline: auto; padding-inline: 0;
 }
-main > .process-section { padding-block: 96px; border-color: #FFFFFF1A; }
+main > .process-section { padding-block: 128px; border-color: var(--line); }
 .process-section h2, .information-grid h2 {
-  margin: 0 0 56px; color: #FFF; font-size: 36px; font-weight: 500;
-  line-height: 1.15; letter-spacing: -.035em; text-wrap: balance;
+  margin: 0 0 56px; color: var(--text); font-size: clamp(32px, 4vw, 48px); font-weight: 500;
+  line-height: 1.15; letter-spacing: -.02em; text-wrap: balance;
 }
 .process-section p, .information-grid blockquote, .information-grid .faq-answer {
-  color: #FFFFFFB3; font-size: 16px; line-height: 1.65; text-wrap: pretty;
+  color: var(--body-text); font-size: 16px; line-height: 1.6; text-wrap: pretty;
 }
 .process-cards { grid-template-columns: minmax(0,1fr); gap: 48px 40px; }
 .process-cards > li {
   display: flex; flex-direction: column; gap: 0; padding: 0;
   background: none; border: 0; border-radius: 0; box-shadow: none;
 }
-.process-cards li > div { width: 100%; padding-top: 24px; border-top: 1px solid #FFFFFF1A; transition: border-color 200ms ease; }
-.process-cards h3 { margin: 0; color: #F1F1F3; font-size: 19px; font-weight: 500; line-height: 1.45; transition: color 200ms ease; }
+.process-cards li > div { width: 100%; padding-top: 24px; border-top: 1px solid var(--line); transition: border-color 160ms var(--motion-ease); }
+.process-cards h3 { margin: 0; color: var(--text); font-size: 20px; font-weight: 500; line-height: 1.4; transition: color 160ms var(--motion-ease); }
 .process-cards p { max-width: 28ch; margin-top: 12px; }
 .process-cards li:hover > div { border-color: #9AA3FF; }
 .process-cards li:hover h3 { color: #FFF; }
 
-main > .information-section { padding-block: 0; border-color: #FFFFFF1A; }
+main > .information-section { padding-block: 0; border-color: var(--line); }
 .information-grid { grid-template-columns: minmax(0,1fr); gap: 0; }
-.information-grid > section { padding: 96px 0; background: none; border: 0; border-radius: 0; box-shadow: none; }
-.information-grid > section + section { border-top: 1px solid #FFFFFF1A; }
+.information-grid > section { padding: 80px 0; background: none; border: 0; border-radius: 0; box-shadow: none; }
+.information-grid > section + section { border-top: 1px solid var(--line); }
 .reviews { display: grid; gap: 16px; }
-.information-grid .review-card { margin: 0; padding: 24px; background: #FFFFFF08; border: 1px solid #FFFFFF1A; border-radius: 16px; }
-.review-card-heading { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px 16px; margin-bottom: 20px; }
+.information-grid .review-card { margin: 0; padding: 24px; background: #FFFFFF08; border: 1px solid var(--line); border-radius: 16px; }
+.review-card-heading { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px 16px; margin-bottom: 16px; }
 .review-card-heading > div { min-width: 0; }
-.review-card h3 { color: #FFF; font-size: 18px; font-weight: 500; line-height: 1.5; }
-.review-card .review-place { margin-top: 4px; color: #FFFFFF99; font-size: 14px; line-height: 1.6; }
-.review-rating { display: flex; flex: none; gap: 3px; padding-top: 6px; color: #A8AFE3; }
+.review-card h3 { color: var(--text); font-size: 18px; font-weight: 500; line-height: 1.5; }
+.review-card .review-place { margin-top: 4px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.review-rating { display: flex; flex: none; gap: 4px; padding-top: 4px; color: var(--muted); }
 .information-grid .review-card blockquote { margin: 0; padding: 0; }
-.information-grid .faq-item { border-bottom: 1px solid #FFFFFF1A !important; }
+.information-grid .faq-item { border-bottom: 1px solid var(--line) !important; }
 .information-grid .faq-title {
   min-height: 0; padding: 24px 0; gap: 24px; border: 0 !important;
-  color: #FFF !important; font-size: 17px; font-weight: 500; line-height: 1.6;
+  color: var(--text) !important; font-size: 17px; font-weight: 500; line-height: 1.6;
 }
-.faq-title svg { width: 20px; height: 20px; rotate: 0deg; transition: transform 200ms ease; }
+.faq-title svg { width: 18px; height: 18px; rotate: 0deg; transition: transform 160ms var(--motion-ease); }
 .faq-title[aria-expanded='true'] svg { transform: rotate(45deg); }
 .information-grid .faq-answer-body { max-width: 65ch; padding: 0 0 24px; }
-.information-grid .faq-answer p { color: #FFFFFFB3; font-size: 16px; line-height: 1.65; }
+.information-grid .faq-answer p { color: var(--body-text); font-size: 16px; line-height: 1.6; }
 
 @media (max-width: 600px) {
   .review-card-heading { flex-direction: column; gap: 12px; }
@@ -50,12 +50,16 @@ main > .information-section { padding-block: 0; border-color: #FFFFFF1A; }
 }
 
 @media (min-width: 768px) {
-  .process-section > .wrap, .information-section > .information-grid { padding-inline: 40px; }
   main > .process-section, .information-grid > section { padding-block: 128px; }
-  .process-section h2, .information-grid h2 { margin-bottom: 64px; font-size: 48px; }
+  .process-section h2, .information-grid h2 { margin-bottom: 56px; }
   .process-cards { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .process-section p, .information-grid blockquote { font-size: 17px; }
   .information-grid .faq-title { font-size: 18px; }
+}
+@media (max-width: 760px) {
+  .wrap, .process-section > .wrap, .information-section > .information-grid { width: calc(100% - 48px); }
+  main > .process-section { padding-block: 80px; }
+  .process-section h2, .information-grid h2 { margin-bottom: 48px; }
 }
 @media (min-width: 1024px) {
   .process-cards { grid-template-columns: repeat(4,minmax(0,1fr)); }
