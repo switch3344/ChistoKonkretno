@@ -12,6 +12,7 @@ import { concise } from './concise';
 import { useScrollReveal } from './useScrollReveal';
 import ComparisonLoupe from './components/ComparisonLoupe';
 import FadeContent from './components/FadeContent';
+import ContactBackdrop from './components/ContactBackdrop';
 
 const money = (n: number) => `${n.toLocaleString('ru-RU')} ₽`;
 const navSections = ['hero', 'calc', 'ba-s', 'faq'];
@@ -160,6 +161,7 @@ export default function App() {
 
       <section id="contact" className="section contact-section" aria-labelledby="cta-heading">
         <div className="contact-panel">
+          <ContactBackdrop />
           <div className="contact-panel-content">
             <h2 id="cta-heading"><AccentTitle text={t.ctaTitle} word={language === 'ru' ? 'чистка' : 'cleaning'} /></h2>
             <p className="contact-description">{t.contactDescription}</p>
