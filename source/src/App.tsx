@@ -160,7 +160,19 @@ export default function App() {
         <section id="faq" aria-labelledby="faq-heading"><FadeContent as="h2" id="faq-heading" effect="mist" duration={1.8} threshold={.1}><AccentTitle text={t.faqTitle} word={language === 'ru' ? 'вопросы' : 'questions'} /></FadeContent><FadeContent className="faq-reveal" effect="mist" duration={1.8} threshold={.1}><Accordion flush className="faq-accordion" arrowIcon={Plus}>{t.faq.map(([question, answer], i) => <AccordionPanel key={i}><div className="faq-item"><AccordionTitle as="h3" id={`faq-question-${i}`} className="faq-title" aria-expanded={faqOpen === i} aria-controls={`faq-answer-${i}`} onClickCapture={() => setFaqOpen(faqOpen === i ? null : i)}>{question}</AccordionTitle><AccordionContent hidden={false} className="faq-answer smooth-panel" data-open={faqOpen === i} aria-hidden={faqOpen !== i} id={`faq-answer-${i}`} role="region" aria-labelledby={`faq-question-${i}`}><div className="smooth-panel-inner"><div className="faq-answer-body"><p>{answer}</p></div></div></AccordionContent></div></AccordionPanel>)}</Accordion></FadeContent></section>
       </div></div>
 
-      <section id="contact" className="section contact-section" aria-labelledby="cta-heading"><div className="wrap"><div className="contact-inner"><h2 id="cta-heading"><AccentTitle text={t.ctaTitle} word={language === 'ru' ? 'чистка' : 'cleaning'} /></h2><a className="btn" href={TELEGRAM} target="_blank" rel="noopener noreferrer">{t.ctaAction}<ArrowUpRight size={20} aria-hidden="true" /></a></div></div></section>
+      <section id="contact" className="section contact-section" aria-labelledby="cta-heading">
+        <div className="contact-panel">
+          <div className="contact-panel-content">
+            <h2 id="cta-heading"><AccentTitle text={t.ctaTitle} word={language === 'ru' ? 'чистка' : 'cleaning'} /></h2>
+            <p className="contact-description">{t.contactDescription}</p>
+            <div className="contact-actions">
+              <a className="btn contact-write" href={TELEGRAM} target="_blank" rel="noopener noreferrer">{t.contactWrite}</a>
+              <a className="btn" href={PHONE_LINK}>{t.contactCall}</a>
+            </div>
+            <div className="contact-links"><a href={TELEGRAM} target="_blank" rel="noopener noreferrer">Telegram</a><span aria-hidden="true">·</span><a href={PHONE_LINK}>{PHONE}</a></div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer className="site-footer"><div className="wrap footer-top"><a href="#hero" className="logo" aria-label={t.backToTop}><Wordmark /></a><p>{t.footerBody}</p><a href={PHONE_LINK}>{PHONE}</a><a href={TELEGRAM} target="_blank" rel="noopener noreferrer">Telegram<ArrowUpRight size={16} aria-hidden="true" /></a></div><div className="wrap footer-bottom"><address>{t.address} {t.street}</address><button className="language-switch" type="button" lang={language === 'ru' ? 'en' : 'ru'} onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}>{language === 'ru' ? 'English' : 'Русский'}</button></div></footer>
   </>;

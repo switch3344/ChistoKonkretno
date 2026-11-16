@@ -7,5 +7,6 @@ import './refinement.css';
 import './sections.css';
 import './hero.css';
 import './responsive.css';
+import './footer.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);
