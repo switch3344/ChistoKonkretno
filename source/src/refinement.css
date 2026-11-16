@@ -1,15 +1,12 @@
 /* Presentation overrides; pricing, comparison and Waves keep their behavior. */
 :root {
   font-family: 'Onest', system-ui, sans-serif;
-  --section-a: #171921;
-  --section-b: #22252F;
   --card-bg: #2A2D39;
   --card-radius: 20px;
   --body-text: #C8C8D0;
   --muted: #A8ADBD;
   --step-accent: #A8AFE3;
   --line: rgba(255,255,255,.08);
-  --section-divider: var(--line);
   --header-offset: 120px;
 }
 
@@ -18,11 +15,11 @@ button, input { font-family: inherit; }
 .card-nav:not([data-open]) .card-nav__panel { overflow: clip; }
 html { scroll-padding-top: 0; }
 main, main > [id], .information-grid > section { scroll-margin-top: var(--header-offset); }
-.comparison-section, .price-section, .contact-section { background: var(--section-a); }
-.process-section, .information-section { background: var(--section-b); }
-main > .section { padding-block: clamp(96px, 12vw, 160px); border-top: 1px solid var(--section-divider); }
+.comparison-section, .price-section, .contact-section,
+.process-section, .information-section { background: var(--bg); }
+main > .section { padding-block: clamp(96px, 12vw, 160px); border-top: 0; }
 main > .section::before { content: none; }
-.hero { border-bottom: 1px solid var(--section-divider); }
+.hero { border-bottom: 0; }
 .hero h1 { color: var(--text); }
 main > .hero + .section { border-top: 0; }
 .comparison-slider { height: clamp(300px, 42vw, 540px); overflow: clip !important; }
@@ -79,7 +76,7 @@ main > .hero + .section { border-top: 0; }
 .faq-answer, .smooth-panel, .faq-answer-body { background: transparent !important; }
 .contact-inner { width: 100%; margin: 0; padding: 48px; gap: 40px; }
 .contact-inner h2 { max-width: 580px; margin: 0; }
-.site-footer { border-top: 1px solid var(--section-divider); }
+.site-footer { border-top: 0; }
 .footer-top { border: 0; padding-top: 40px; }
 
 /* Only opacity and transform change: content keeps its natural layout space. */

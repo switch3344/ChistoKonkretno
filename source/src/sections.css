@@ -3,7 +3,7 @@
 .process-section > .wrap, .information-section > .information-grid {
   width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 24px;
 }
-main > .process-section { padding-block: 96px; border-color: #FFFFFF1A; }
+main > .process-section { padding-block: 96px; }
 .process-section h2, .information-grid h2 {
   margin: 0 0 56px; color: #FFF; font-size: 36px; font-weight: 500;
   line-height: 1.15; letter-spacing: -.035em; text-wrap: balance;
@@ -22,10 +22,9 @@ main > .process-section { padding-block: 96px; border-color: #FFFFFF1A; }
 .process-cards li:hover > div { border-color: #9AA3FF; }
 .process-cards li:hover h3 { color: #FFF; }
 
-main > .information-section { padding-block: 0; border-color: #FFFFFF1A; }
+main > .information-section { padding-block: 0; }
 .information-grid { grid-template-columns: minmax(0,1fr); gap: 0; }
 .information-grid > section { padding: 96px 0; background: none; border: 0; border-radius: 0; box-shadow: none; }
-.information-grid > section + section { border-top: 1px solid #FFFFFF1A; }
 .reviews { display: grid; gap: 16px; }
 .information-grid .review-card { margin: 0; padding: 24px; background: #FFFFFF08; border: 1px solid #FFFFFF1A; border-radius: 16px; }
 .review-card-heading { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px 16px; margin-bottom: 20px; }

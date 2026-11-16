@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowDown, ArrowUpRight, Check, Plus, Star } from 'lucide-react';
+import { ArrowUpRight, Check, Plus, Star } from 'lucide-react';
 import { ReactCompareSlider, ReactCompareSliderHandle, useReactCompareSliderContext } from 'react-compare-slider';
 import { Accordion, AccordionContent, AccordionPanel, AccordionTitle } from 'flowbite-react';
 import CardNav from './components/CardNav';
@@ -135,8 +135,6 @@ export default function App() {
           <h1 id="hero-heading">{t.heroTitle}<br /><span className="serif">{t.heroSecond}</span></h1>
           <p className="hero-body">{t.heroBody}</p>
           <a href={TELEGRAM} target="_blank" rel="noopener noreferrer" className="btn">{t.photoAction}<ArrowUpRight size={20} aria-hidden="true" /></a>
-          <a href="#calc" className="hero-secondary">{t.costAction}<ArrowDown size={17} aria-hidden="true" /></a>
-          <ul className="hero-facts">{t.facts.map(fact => <li key={fact}>{fact}</li>)}</ul>
         </div></div>
       </section>
 

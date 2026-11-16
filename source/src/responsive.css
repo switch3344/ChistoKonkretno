@@ -36,7 +36,7 @@ h1, h2, h3 {
   main > .information-section { padding-block: 128px; }
   .information-grid { grid-template-columns: minmax(0, 1fr); gap: 64px; }
   .information-grid > section { padding-block: 0; }
-  .information-grid > section + section { padding-top: 64px; border-top: 1px solid #FFFFFF1A; }
+  .information-grid > section + section { padding-top: 64px; }
 }
 @media (max-width: 760px) {
   .hero-copy { width: 100%; }
